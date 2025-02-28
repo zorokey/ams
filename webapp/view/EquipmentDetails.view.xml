@@ -1,0 +1,172 @@
+<mvc:View
+    controllerName="emsd.ams.controller.EquipmentDetails"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:l="sap.ui.layout"
+    xmlns:f="sap.ui.layout.form"
+    xmlns:smartForm="sap.ui.comp.smartform">
+    
+    <Page id="equipmentDetailsPage" 
+          title="{i18n>equipmentDetailsTitle}"
+          showNavButton="true"
+          navButtonPress="onNavBack">
+        <content>
+            <l:ResponsiveSplitter id="detailsPageSplitter">
+                <l:PaneContainer id="paneContainer">
+                    <!-- Left side - Equipment image and basic info -->
+                    <l:SplitPane id="leftPane" requiredParentWidth="800" demandPane="true">
+                        <VBox id="leftPaneContainer" class="sapUiSmallMargin">
+                            <f:SimpleForm id="equipmentHeaderForm"
+                                      editable="false"
+                                      layout="ResponsiveGridLayout"
+                                      title="{i18n>equipmentBasicInfoTitle}"
+                                      labelSpanXL="4"
+                                      labelSpanL="4"
+                                      labelSpanM="4"
+                                      labelSpanS="12"
+                                      adjustLabelSpan="false"
+                                      emptySpanXL="0"
+                                      emptySpanL="0"
+                                      emptySpanM="0"
+                                      emptySpanS="0"
+                                      columnsXL="1"
+                                      columnsL="1"
+                                      columnsM="1"
+                                      class="sapUiResponsiveMargin">
+                                <f:content>
+                                    <Label id="equipmentNoLabel" text="{i18n>equipmentNoLabel}" />
+                                    <Text id="equipmentNoText" text="{EquipmentNo}" />
+                                    <Label id="equipmentDescriptionLabel" text="{i18n>equipmentDescriptionLabel}" />
+                                    <Text id="equipmentDescriptionText" text="{EquipmentDescription}" />
+                                </f:content>
+                            </f:SimpleForm>
+                            
+                            <!-- Equipment Image Placeholder -->
+                            <VBox id="equipmentImageContainer" height="200px" width="100%" class="sapUiSmallMargin" justifyContent="Center" alignItems="Center">
+                                <core:Icon id="equipmentImage" src="sap-icon://machine" size="8rem" color="Default" />
+                            </VBox>
+                        </VBox>
+                    </l:SplitPane>
+                    
+                    <!-- Right side - Details info with tabs -->
+                    <l:SplitPane id="rightPane" requiredParentWidth="800">
+                        <VBox id="rightPaneContainer">
+                            <!-- Top section - Basic info -->
+                            <Panel id="basicInfoPanel" headerText="{i18n>basicEquipmentInfoTitle}" class="sapUiResponsiveMargin">
+                                <f:SimpleForm id="basicInfoForm"
+                                          editable="false"
+                                          layout="ResponsiveGridLayout"
+                                          labelSpanXL="4"
+                                          labelSpanL="4"
+                                          labelSpanM="4"
+                                          labelSpanS="12"
+                                          adjustLabelSpan="false"
+                                          emptySpanXL="0"
+                                          emptySpanL="0"
+                                          emptySpanM="0"
+                                          emptySpanS="0"
+                                          columnsXL="2"
+                                          columnsL="2"
+                                          columnsM="1">
+                                    <f:content>
+                                        <Label id="modelNoLabel" text="{i18n>modelNoLabel}" />
+                                        <Text id="modelNoText" text="{ModelNo}" />
+                                        <Label id="manufacturerSerialNoLabel" text="{i18n>manufacturerSerialNoLabel}" />
+                                        <Text id="manufacturerSerialNoText" text="{ManufacturerSerialNo}" />
+                                    </f:content>
+                                </f:SimpleForm>
+                            </Panel>
+                            
+                            <!-- Bottom section - Tabs -->
+                            <IconTabBar id="equipmentDetailsTabs" class="sapUiResponsiveMargin" expandable="false" expanded="true">
+                                <!-- General Tab -->
+                                <items>
+                                    <IconTabFilter id="generalTab" text="{i18n>generalTabTitle}" key="general">
+                                        <f:SimpleForm id="generalInfoForm"
+                                                  editable="false"
+                                                  layout="ResponsiveGridLayout"
+                                                  labelSpanXL="4"
+                                                  labelSpanL="4"
+                                                  labelSpanM="4"
+                                                  labelSpanS="12"
+                                                  adjustLabelSpan="false"
+                                                  emptySpanXL="0"
+                                                  emptySpanL="0"
+                                                  emptySpanM="0"
+                                                  emptySpanS="0"
+                                                  columnsXL="2"
+                                                  columnsL="2"
+                                                  columnsM="1">
+                                            <f:content>
+                                                <Label id="functionalLocationLabel" text="{i18n>functionalLocationLabel}" />
+                                                <Text id="functionalLocationText" text="{FunctionalLocation}" />
+                                                <Label id="userStatusLabel" text="{i18n>userStatusLabel}" />
+                                                <Text id="userStatusText" text="{UserStatus}" />
+                                                <Label id="equipmentTypeLabel" text="{i18n>equipmentTypeLabel}" />
+                                                <Text id="equipmentTypeText" text="{EquipmentType}" />
+                                                <Label id="authorizationGroupLabel" text="{i18n>authorizationGroupLabel}" />
+                                                <Text id="authorizationGroupText" text="{AuthorizationGroup}" />
+                                                <Label id="technicalIdLabel" text="{i18n>technicalIdLabel}" />
+                                                <Text id="technicalIdText" text="{TechnicalId}" />
+                                                <Label id="plannerGroupLabel" text="{i18n>plannerGroupLabel}" />
+                                                <Text id="plannerGroupText" text="{PlannerGroup}" />
+                                                <Label id="mainWorkCenterLabel" text="{i18n>mainWorkCenterLabel}" />
+                                                <Text id="mainWorkCenterText" text="{MainWorkCenter}" />
+                                                <Label id="divisionLabel" text="{i18n>divisionLabel}" />
+                                                <Text id="divisionText" text="{Division}" />
+                                                <Label id="customerLabel" text="{i18n>customerLabel}" />
+                                                <Text id="customerText" text="{Customer}" />
+                                                <Label id="createdByLabel" text="{i18n>createdByLabel}" />
+                                                <Text id="createdByText" text="{CreatedBy}" />
+                                                <Label id="createdOnLabel" text="{i18n>createdOnLabel}" />
+                                                <Text id="createdOnText" text="{path:'CreatedOn', formatter:'.formatter.formatDate'}" />
+                                                <Label id="changedByLabel" text="{i18n>changedByLabel}" />
+                                                <Text id="changedByText" text="{ChangedBy}" />
+                                                <Label id="changedOnLabel" text="{i18n>changedOnLabel}" />
+                                                <Text id="changedOnText" text="{path:'ChangedOn', formatter:'.formatter.formatDate'}" />
+                                            </f:content>
+                                        </f:SimpleForm>
+                                    </IconTabFilter>
+                                    
+                                    <!-- Organization Tab -->
+                                    <IconTabFilter id="organizationTab" text="{i18n>organizationTabTitle}" key="organization">
+                                        <f:SimpleForm id="organizationForm"
+                                                  editable="false"
+                                                  layout="ResponsiveGridLayout"
+                                                  labelSpanXL="4"
+                                                  labelSpanL="4"
+                                                  labelSpanM="4"
+                                                  labelSpanS="12"
+                                                  adjustLabelSpan="false"
+                                                  emptySpanXL="0"
+                                                  emptySpanL="0"
+                                                  emptySpanM="0"
+                                                  emptySpanS="0"
+                                                  columnsXL="1"
+                                                  columnsL="1"
+                                                  columnsM="1">
+                                            <f:content>
+                                                <Label id="organizationIdLabel" text="{i18n>organizationIdLabel}" />
+                                                <Text id="organizationIdText" text="{OrganizationId}" />
+                                                <Label id="organizationNameLabel" text="{i18n>organizationNameLabel}" />
+                                                <Text id="organizationNameText" text="{OrganizationName}" />
+                                            </f:content>
+                                        </f:SimpleForm>
+                                    </IconTabFilter>
+                                </items>
+                            </IconTabBar>
+                        </VBox>
+                    </l:SplitPane>
+                </l:PaneContainer>
+            </l:ResponsiveSplitter>
+        </content>
+        <footer>
+            <OverflowToolbar id="equipmentDetailsFooter">
+                <Button id="backToListButton" 
+                        text="{i18n>backToListButtonText}" 
+                        press="onNavBack" />
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>

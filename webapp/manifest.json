@@ -1,0 +1,154 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "emsd.ams",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "resources": "resources.json",
+        "ach": "ach",
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/EMSD_AMS_SRV/",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0",
+                    "localUri": "localService/metadata.xml",
+                    "annotations": [
+                      "annotations"
+                    ]
+                }
+            },
+            "annotations": {
+                "uri": "localService/annotations.xml",
+                "type": "ODataAnnotation"
+            }
+        },
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:basic",
+            "version": "1.16.3",
+            "toolsId": "3f3b1abf-191c-4ade-a2e0-91ab7f23da1c"
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": true,
+        "dependencies": {
+            "minUI5Version": "1.133.0",
+            "libs": {
+                "sap.ui.core": {},
+                "sap.m": {},
+                "sap.ui.comp": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay"
+                }
+            },
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "emsd.ams.i18n.i18n"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {
+                "routerClass": "sap.m.routing.Router",
+                "controlAggregation": "pages",
+                "controlId": "app",
+                "transition": "slide",
+                "type": "View",
+                "viewType": "XML",
+                "path": "emsd.ams.view",
+                "async": true,
+                "viewPath": "emsd.ams.view"
+            },
+            "routes": [
+                {
+                    "name": "RouteEquipmentList",
+                    "pattern": ":?query:",
+                    "target": [
+                        "TargetEquipmentList"
+                    ]
+                },
+                {
+                    "name": "equipmentList",
+                    "pattern": "",
+                    "target": [
+                        "equipmentList"
+                    ]
+                },
+                {
+                    "name": "equipmentDetails",
+                    "pattern": "Equipment/{equipmentId}",
+                    "target": [
+                        "equipmentDetails"
+                    ]
+                }
+            ],
+            "targets": {
+                "TargetEquipmentList": {
+                    "id": "EquipmentList",
+                    "name": "EquipmentList"
+                },
+                "equipmentList": {
+                    "viewName": "EquipmentList",
+                    "viewId": "equipmentList",
+                    "viewLevel": 1,
+                    "title": "{i18n>equipmentListTitle}"
+                },
+                "equipmentDetails": {
+                    "viewName": "EquipmentDetails",
+                    "viewId": "equipmentDetails",
+                    "viewLevel": 2,
+                    "title": "{i18n>equipmentDetailsTitle}"
+                },
+                "notFound": {
+                    "viewName": "NotFound",
+                    "viewId": "notFound"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "emsd.ams.view.App",
+            "type": "XML",
+            "id": "App"
+        }
+    }
+}

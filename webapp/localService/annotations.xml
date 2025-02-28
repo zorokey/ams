@@ -1,0 +1,67 @@
+<edmx:Edmx Version="4.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <edmx:Reference Uri="localService/metadata.xml">
+        <edmx:Include Namespace="EMSD_AMS_SRV" Alias="ams"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema Namespace="emsd.annotations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+            <Annotations Target="ams.Equipment">
+                <!-- 定义列表字段 -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="EquipmentNo"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment No"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="EquipmentDescription"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment Description"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="ModelNo"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Model No"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="ManufacturerSerialNo"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Manufacturer Serial No"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="FunctionalLocation"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Functional Location"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="UserStatus"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="User Status"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="EquipmentType"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment Type"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+
+                <!-- 定义筛选字段 -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+                    <Collection>
+                        <PropertyPath>EquipmentNo</PropertyPath>
+                        <PropertyPath>EquipmentDescription</PropertyPath>
+                        <PropertyPath>ModelNo</PropertyPath>
+                        <PropertyPath>ManufacturerSerialNo</PropertyPath>
+                        <PropertyPath>FunctionalLocation</PropertyPath>
+                        <PropertyPath>UserStatus</PropertyPath>
+                        <PropertyPath>EquipmentType</PropertyPath>
+                        <PropertyPath>AuthorizationGroup</PropertyPath>
+                        <PropertyPath>TechnicalId</PropertyPath>
+                        <PropertyPath>PlannerGroup</PropertyPath>
+                        <PropertyPath>MainWorkCenter</PropertyPath>
+                        <PropertyPath>Division</PropertyPath>
+                        <PropertyPath>Customer</PropertyPath>
+                        <PropertyPath>CreatedBy</PropertyPath>
+                        <PropertyPath>CreatedOn</PropertyPath>
+                        <PropertyPath>ChangedBy</PropertyPath>
+                        <PropertyPath>ChangedOn</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

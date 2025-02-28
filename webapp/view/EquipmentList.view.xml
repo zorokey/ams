@@ -1,0 +1,151 @@
+<mvc:View
+    controllerName="emsd.ams.controller.EquipmentList"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:core="sap.ui.core"
+    xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:smartFilterBar="sap.ui.comp.smartfilterbar">
+    
+    <!-- Page -->
+    <Page id="equipmentListPage" title="{i18n>equipmentListTitle}">
+        <content>
+            <!-- VBox Container -->
+            <VBox id="equipmentListContainer" class="sapUiSmallMargin">
+                
+                <!-- SmartFilterBar -->
+                <smartFilterBar:SmartFilterBar 
+                    id="equipmentSmartFilterBar"
+                    entitySet="EquipmentSet"
+                    persistencyKey="EquipmentFilterBar"
+                    considerSelectionVariants="true"
+                    enableBasicSearch="true"
+                    basicSearchFieldName="EquipmentDescription">
+                    
+                    <!-- Control Configuration -->
+                    <smartFilterBar:controlConfiguration>
+                        <smartFilterBar:ControlConfiguration 
+                            id="equipmentNoFilterConfig"
+                            key="EquipmentNo" 
+                            visibleInAdvancedArea="true"
+                            preventInitialDataFetchInValueHelpDialog="false"
+                            displayBehaviour="descriptionAndId"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="equipmentDescriptionFilterConfig"
+                            key="EquipmentDescription" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="modelNoFilterConfig"
+                            key="ModelNo" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="manufacturerSerialNoFilterConfig"
+                            key="ManufacturerSerialNo" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="functionalLocationFilterConfig"
+                            key="FunctionalLocation" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="userStatusFilterConfig"
+                            key="UserStatus" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="equipmentTypeFilterConfig"
+                            key="EquipmentType" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="authorizationGroupFilterConfig"
+                            key="AuthorizationGroup" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="technicalIdFilterConfig"
+                            key="TechnicalId" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="plannerGroupFilterConfig"
+                            key="PlannerGroup" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="mainWorkCenterFilterConfig"
+                            key="MainWorkCenter" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="divisionFilterConfig"
+                            key="Division" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="customerFilterConfig"
+                            key="Customer" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="createdByFilterConfig"
+                            key="CreatedBy" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="createdOnFilterConfig"
+                            key="CreatedOn" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="changedByFilterConfig"
+                            key="ChangedBy" 
+                            visibleInAdvancedArea="true"/>
+                        <smartFilterBar:ControlConfiguration 
+                            id="changedOnFilterConfig"
+                            key="ChangedOn" 
+                            visibleInAdvancedArea="true"/>
+                    </smartFilterBar:controlConfiguration>
+                </smartFilterBar:SmartFilterBar>
+                
+                <!-- SmartTable -->
+                <smartTable:SmartTable 
+                    id="equipmentSmartTable"
+                    entitySet="EquipmentSet"
+                    smartFilterId="equipmentSmartFilterBar"
+                    tableType="Table"
+                    useExportToExcel="true"
+                    useVariantManagement="true"
+                    useTablePersonalisation="true"
+                    header="{i18n>equipmentTableTitle}"
+                    showRowCount="true"
+                    persistencyKey="EquipmentSmartTable"
+                    enableAutoBinding="true"
+                    class="sapUiResponsiveContentPadding"
+                    initiallyVisibleFields="EquipmentNo,EquipmentDescription,ModelNo,ManufacturerSerialNo,FunctionalLocation,UserStatus,EquipmentType">
+                    
+                    <!-- Layout Data -->
+                    <smartTable:layoutData>
+                        <FlexItemData id="equipmentTableLayoutData" growFactor="1" />
+                    </smartTable:layoutData>
+                    
+                    <!-- Table -->
+                    <Table 
+                        id="equipmentTable"
+                        mode="MultiSelect"
+                        selectionChange="onSelectionChange">
+                        <columns>
+                            <!-- Columns will be generated by SmartTable based on metadata -->
+                        </columns>
+                        <items>
+                            <!-- Items will be generated by SmartTable based on the binding -->
+                        </items>
+                    </Table>
+                </smartTable:SmartTable>
+
+                
+            </VBox>
+            
+        </content>
+
+        <footer>
+            <OverflowToolbar id="equipmentListFooter">
+                <ToolbarSpacer id="equipmentListFooterSpacer" />
+                <Button 
+                    id="viewDetailsButton" 
+                    text="{i18n>viewDetailsButtonText}" 
+                    type="Emphasized" 
+                    enabled="{= ${view>/selectedCount} === 1}" 
+                    press="onViewDetailsPress"/>
+            </OverflowToolbar>
+        </footer>
+    </Page>
+</mvc:View>
