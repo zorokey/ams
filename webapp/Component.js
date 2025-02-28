@@ -24,7 +24,6 @@ sap.ui.define([
                 
                 // 直接使用引入的mockserver模块初始化
                 mockserver.init();
-                console.log("MockServer初始化完成 - 从Component.js");
             }
             
             // 设置设备模型

@@ -15,6 +15,9 @@ server:
             - /resources
             - /test-resources
           url: https://ui5.sap.com
+          backend:
+            - path: /sap
+              url: http://localhost
     - name: fiori-tools-appreload
       afterMiddleware: compression
       configuration:
@@ -26,8 +29,13 @@ server:
       configuration:
         component: emsd.ams
         ui5Theme: sap_horizon
-    - name: ui5-middleware-servestatic
-      afterMiddleware: compression
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
       configuration:
-        rootPath: "./webapp/localService"
-        pathPrefix: "/sap/opu/odata/sap/EMSD_AMS_SRV"
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/EMSD_AMS_SRV
+            metadataPath: ./webapp/localService/metadata.xml
+            mockdataPath: ./webapp/localService/mockdata
+            generateMockData: true
+        annotations: []

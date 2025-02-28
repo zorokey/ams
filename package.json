@@ -11,9 +11,9 @@
   "devDependencies": {
     "@sap/ux-ui5-tooling": "1",
     "@ui5/cli": "^3.0.0",
-    "ui5-middleware-servestatic": "^3.3.0",
-    "ui5-middleware-simpleproxy": "^3.4.0"
-  },
+    "@sap-ux/ui5-middleware-fe-mockserver": "2"
+  },  
+ 
   "scripts": {
     "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#emsdams-display\"",
     "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#emsdams-display\"",
