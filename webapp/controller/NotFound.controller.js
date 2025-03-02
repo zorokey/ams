@@ -1,12 +1,13 @@
 sap.ui.define([
   "sap/ui/core/mvc/Controller",
+  "sap/ui/core/UIComponent",
   "sap/ui/core/routing/History"
-], function (Controller, History) {
+], function (Controller, UIComponent, History) {
   "use strict";
 
   return Controller.extend("emsd.ams.controller.NotFound", {
       /**
-       * Handler for nav back button
+       * Event handler for navigating back
        */
       onNavBack: function () {
           var oHistory = History.getInstance();
@@ -15,7 +16,8 @@ sap.ui.define([
           if (sPreviousHash !== undefined) {
               window.history.go(-1);
           } else {
-              this.getOwnerComponent().getRouter().navTo("equipmentList", {}, { replaceHash: true });
+              var oRouter = UIComponent.getRouterFor(this);
+              oRouter.navTo("EquipmentList", {}, true);
           }
       }
   });

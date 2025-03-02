@@ -1,0 +1,41 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:u="sap.ui.unified">
+    <Dialog
+        id="uploadTemplateDialog"
+        title="{i18n>uploadTemplateTitle}"
+        class="sapUiContentPadding">
+        <content>
+            <VBox>
+                <u:FileUploader
+                    id="fileUploader"
+                    name="equipmentTemplate"
+                    style="Emphasized"
+                    placeholder="{i18n>selectFilePlaceholder}"
+                    change="onFileUploadChange"
+                    uploadComplete="onUploadComplete"
+                    tooltip="{i18n>uploadTooltip}"
+                    sendXHR="true"
+                    useMultipart="true"
+                    width="100%"
+                    fileType="xlsx,xls">
+                </u:FileUploader>
+                <Text
+                    text="{i18n>uploadTemplateHelpText}"
+                    class="sapUiSmallMarginTop" />
+            </VBox>
+        </content>
+        <buttons>
+            <Button
+                id="templateUploadButton"
+                text="{i18n>uploadButtonText}"
+                type="Emphasized"
+                enabled="false"
+                press="onUploadTemplate" />
+            <Button
+                text="{i18n>cancelButtonText}"
+                press="onCancelUpload" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

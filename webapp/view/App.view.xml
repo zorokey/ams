@@ -1,10 +1,10 @@
 <mvc:View
-    controllerName="emsd.ams.controller.App"
-    xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    controllerName="emsd.ams.controller.App"
     displayBlock="true">
-    
-    <App id="app">
-    </App>
-    
+    <App
+        id="app"
+        busy="{appView>/busy}"
+        busyIndicatorDelay="{appView>/delay}"/>
 </mvc:View>

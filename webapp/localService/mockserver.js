@@ -3,49 +3,41 @@ sap.ui.define([
     "sap/base/Log"
 ], function (MockServer, Log) {
     "use strict";
+
     return {
-        /**
-         * Initialize the mock server
-         */
         init: function () {
-            Log.info("Initializing MockServer");
-            
-            // Create an instance of the mock server
+            // Create mock server
             var oMockServer = new MockServer({
                 rootUri: "/sap/opu/odata/sap/EMSD_AMS_SRV/"
             });
-            
-            // Configure delayed responses
-            MockServer.config({
-                autoRespond: true,
-                autoRespondAfter: 0
+
+            // Configure mock server for the OData service
+            var sMetadataPath = sap.ui.require.toUrl("emsd/ams/localService/metadata.xml");
+            var sMockDataPath = sap.ui.require.toUrl("emsd/ams/localService/mockdata");
+
+            // Load metadata and annotations
+            oMockServer.simulate(sMetadataPath, {
+                sMockdataBaseUrl: sMockDataPath,
+                bGenerateMissingMockData: true
             });
-            
-            // Get the path to the metadata file
-            var sMetadataPath = jQuery.sap.getModulePath("emsd.ams", "/localService/metadata.xml");
-            
-            try {
-                // Read the metadata content
-                var sMetadataString = jQuery.sap.syncGetText(sMetadataPath).data;
-                
-                // Configure the mock server
-                oMockServer.simulate(sMetadataString, {
-                    sMockdataBaseUrl: jQuery.sap.getModulePath("emsd.ams", "/localService/mockdata"),
-                    bGenerateMissingMockData: true
-                });
-                
-                // Add logging for GET requests
-                oMockServer.attachAfter("GET", function(oEvent) {
-                    var oXhr = oEvent.getParameter("oXhr");
-                    console.log("Processed GET request: " + oXhr.url);
-                });
-                
-                // Start the server
-                oMockServer.start();
-                console.log("MockServer started successfully");
-            } catch (oError) {
-                console.error("MockServer initialization failed: " + oError.message);
-            }
+
+            // Add annotations
+            var oAnnotations = new MockServer({
+                rootUri: "localService/annotations/",
+                requests: [{
+                    method: "GET",
+                    path: new RegExp("annotations.xml"),
+                    response: function (oXhr) {
+                        oXhr.respondFile(200, {}, sap.ui.require.toUrl("emsd/ams/localService/annotations.xml"));
+                    }
+                }]
+            });
+
+            // Start mock servers
+            oMockServer.start();
+            oAnnotations.start();
+
+            Log.info("Running the app with mock data");
         }
     };
 });

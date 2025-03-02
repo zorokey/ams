@@ -1,10 +1,11 @@
-<edmx:Edmx Version="4.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+<?xml version="1.0" encoding="UTF-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
     <edmx:Reference Uri="localService/metadata.xml">
         <edmx:Include Namespace="EMSD_AMS_SRV" Alias="ams"/>
     </edmx:Reference>
     <edmx:DataServices>
-        <Schema Namespace="emsd.annotations" xmlns="http://docs.oasis-open.org/odata/ns/edm">
-            <Annotations Target="ams.Equipment">
+        <Schema Namespace="emsd.annotations" xmlns="http://docs.oasis-open.org/odata/ns/edm" xmlns:UI="com.sap.vocabularies.UI.v1">
+            <Annotations Target="EMSD_AMS_SRV.Equipment">
                 <!-- 定义列表字段 -->
                 <Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
                     <Collection>
@@ -36,6 +37,46 @@
                             <PropertyValue Property="Value" Path="EquipmentType"/>
                             <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment Type"/>
                         </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="AuthorizationGroup"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Authorization Group"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="TechnicalId"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Technical ID"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="PlannerGroup"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planner Group"/>
+                        </Record>
+                        <!-- <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="MainWorkCenter"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Main Work Center"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="Division"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Division"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="Customer"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Customer"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="CreatedBy"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Created By"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="CreatedOn"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Created On"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="ChangedBy"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Changed By"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="ChangedOn"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Changed On"/>
+                        </Record> -->
                     </Collection>
                 </Annotation>
 
@@ -59,7 +100,136 @@
                         <PropertyPath>CreatedOn</PropertyPath>
                         <PropertyPath>ChangedBy</PropertyPath>
                         <PropertyPath>ChangedOn</PropertyPath>
+                       
                     </Collection>
+                </Annotation>
+                
+                <!-- 定义标识信息 -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.Identification">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="EquipmentNo"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment No"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="EquipmentDescription"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment Description"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                
+                <!-- 定义标题信息 -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.HeaderInfo">
+                    <Record Type="com.sap.vocabularies.UI.v1.HeaderInfoType">
+                        <PropertyValue Property="TypeName" String="Equipment"/>
+                        <PropertyValue Property="TypeNamePlural" String="Equipment"/>
+                        <PropertyValue Property="Title">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="EquipmentNo"/>
+                            </Record>
+                        </PropertyValue>
+                        <PropertyValue Property="Description">
+                            <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                <PropertyValue Property="Value" Path="EquipmentDescription"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                
+                <!-- 定义分面信息 -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.Facets">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                            <PropertyValue Property="ID" String="GeneralFacet"/>
+                            <PropertyValue Property="Label" String="General Information"/>
+                            <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#GeneralInformation"/>
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                            <PropertyValue Property="ID" String="OrganizationFacet"/>
+                            <PropertyValue Property="Label" String="Organization"/>
+                            <PropertyValue Property="Target" AnnotationPath="@com.sap.vocabularies.UI.v1.FieldGroup#Organization"/>
+                        </Record>
+                    </Collection>
+                </Annotation>
+                
+                <!-- 定义字段组 - 一般信息 -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="GeneralInformation">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="FunctionalLocation"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Functional Location"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="UserStatus"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="User Status"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="EquipmentType"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment Type"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="AuthorizationGroup"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Authorization Group"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="TechnicalId"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Technical ID"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="PlannerGroup"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planner Group"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="MainWorkCenter"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Main Work Center"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="Division"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Division"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="Customer"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Customer"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="CreatedBy"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Created By"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="CreatedOn"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Created On"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="ChangedBy"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Changed By"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="ChangedOn"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Changed On"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                
+                <!-- 定义字段组 - 组织信息 -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="Organization">
+                    <Record Type="com.sap.vocabularies.UI.v1.FieldGroupType">
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="OrganizationId"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Organization ID"/>
+                                </Record>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="OrganizationName"/>
+                                    <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Organization Name"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
                 </Annotation>
             </Annotations>
         </Schema>

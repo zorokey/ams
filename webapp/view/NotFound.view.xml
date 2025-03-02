@@ -1,15 +1,30 @@
 <mvc:View
-    controllerName="emsd.ams.controller.NotFound"
+    xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m"
-    xmlns:mvc="sap.ui.core.mvc">
-    
-    <MessagePage id="notFoundPage"
-                 title="{i18n>notFoundTitle}"
-                 text="{i18n>notFoundText}"
-                 icon="sap-icon://document"
-                 description="{i18n>notFoundDescription}"
-                 showNavButton="true"
-                 navButtonPress="onNavBack">
-    </MessagePage>
-    
+    controllerName="emsd.ams.controller.NotFound"
+    displayBlock="true">
+    <Page
+        id="notFoundPage"
+        title="{i18n>notFoundTitle}"
+        showNavButton="true"
+        navButtonPress="onNavBack">
+        <content>
+            <VBox
+                id="notFoundContent"
+                alignItems="Center"
+                justifyContent="Center"
+                height="100%">
+                <Text
+                    id="notFoundText"
+                    text="{i18n>notFoundText}"
+                    textAlign="Center"
+                    class="sapUiMediumMargin"/>
+                <Button
+                    id="backToHomeButton"
+                    text="{i18n>backToHome}"
+                    press="onNavBack"
+                    class="sapUiSmallMarginTop"/>
+            </VBox>
+        </content>
+    </Page>
 </mvc:View>

@@ -1,0 +1,67 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:smartForm="sap.ui.comp.smartform"
+    xmlns:smartField="sap.ui.comp.smartfield">
+    <Dialog
+        id="createEquipmentDialog"
+        title="{i18n>createEquipmentTitle}"
+        class="sapUiContentPadding"
+        contentWidth="50rem">
+        <content>
+            <smartForm:SmartForm
+                id="createEquipmentForm"
+                entityType="Equipment"
+                editTogglable="false"
+                editable="true">
+                <smartForm:Group id="generalGroup" label="{i18n>generalInformationLabel}">
+                    <smartForm:GroupElement id="equipmentDescElement">
+                        <smartField:SmartField value="{EquipmentDescription}" />
+                    </smartForm:GroupElement>
+                    <smartForm:GroupElement id="modelNoElement">
+                        <smartField:SmartField value="{ModelNo}" />
+                    </smartForm:GroupElement>
+                    <smartForm:GroupElement id="serialNoElement">
+                        <smartField:SmartField value="{ManufacturerSerialNo}" />
+                    </smartForm:GroupElement>
+                </smartForm:Group>
+                
+                <smartForm:Group id="locationGroup" label="{i18n>locationInformationLabel}">
+                    <smartForm:GroupElement id="functionalLocationElement">
+                        <smartField:SmartField value="{FunctionalLocation}" />
+                    </smartForm:GroupElement>
+                    <smartForm:GroupElement id="costCenterElement">
+                        <smartField:SmartField value="{CostCenter}" />
+                    </smartForm:GroupElement>
+                </smartForm:Group>
+                
+                <smartForm:Group id="statusGroup" label="{i18n>statusInformationLabel}">
+                    <smartForm:GroupElement id="userStatusElement">
+                        <smartField:SmartField value="{UserStatus}" />
+                    </smartForm:GroupElement>
+                </smartForm:Group>
+                
+                <smartForm:Group id="technicalGroup" label="{i18n>technicalInformationLabel}">
+                    <smartForm:GroupElement id="technicalCategoryElement">
+                        <smartField:SmartField value="{TechnicalCategory}" />
+                    </smartForm:GroupElement>
+                    <smartForm:GroupElement id="manufactureElement">
+                        <smartField:SmartField value="{Manufacturer}" />
+                    </smartForm:GroupElement>
+                    <smartForm:GroupElement id="manufactureYearElement">
+                        <smartField:SmartField value="{ManufactureYear}" />
+                    </smartForm:GroupElement>
+                </smartForm:Group>
+            </smartForm:SmartForm>
+        </content>
+        <buttons>
+            <Button
+                text="{i18n>saveButtonText}"
+                type="Emphasized"
+                press="onSaveEquipment" />
+            <Button
+                text="{i18n>cancelButtonText}"
+                press="onCancelCreate" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>

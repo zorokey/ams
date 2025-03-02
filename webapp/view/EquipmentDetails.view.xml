@@ -1,155 +1,166 @@
 <mvc:View
-    controllerName="emsd.ams.controller.EquipmentDetails"
-    xmlns="sap.m"
     xmlns:mvc="sap.ui.core.mvc"
-    xmlns:core="sap.ui.core"
-    xmlns:l="sap.ui.layout"
+    xmlns="sap.m"
     xmlns:f="sap.ui.layout.form"
-    xmlns:smartForm="sap.ui.comp.smartform">
-    
-    <Page id="equipmentDetailsPage" 
-          title="{i18n>equipmentDetailsTitle}"
-          showNavButton="true"
-          navButtonPress="onNavBack">
+    xmlns:l="sap.ui.layout"
+    xmlns:core="sap.ui.core"
+    xmlns:smartForm="sap.ui.comp.smartform"
+    xmlns:smartField="sap.ui.comp.smartfield"
+    controllerName="emsd.ams.controller.EquipmentDetails"
+    displayBlock="true">
+    <Page
+        id="equipmentDetailsPage"
+        title="{i18n>equipmentDetailsTitle}"
+        showNavButton="true"
+        navButtonPress="onNavBack">
         <content>
-            <l:ResponsiveSplitter id="detailsPageSplitter">
-                <l:PaneContainer id="paneContainer">
-                    <!-- Left side - Equipment image and basic info -->
+            <l:ResponsiveSplitter id="detailPageSplitter">
+                <l:PaneContainer id="detailPaneContainer">
+                    <!-- Left side - 30% width -->
                     <l:SplitPane id="leftPane" requiredParentWidth="800" demandPane="true">
-                        <VBox id="leftPaneContainer" class="sapUiSmallMargin">
-                            <f:SimpleForm id="equipmentHeaderForm"
-                                      editable="false"
-                                      layout="ResponsiveGridLayout"
-                                      title="{i18n>equipmentBasicInfoTitle}"
-                                      labelSpanXL="4"
-                                      labelSpanL="4"
-                                      labelSpanM="4"
-                                      labelSpanS="12"
-                                      adjustLabelSpan="false"
-                                      emptySpanXL="0"
-                                      emptySpanL="0"
-                                      emptySpanM="0"
-                                      emptySpanS="0"
-                                      columnsXL="1"
-                                      columnsL="1"
-                                      columnsM="1"
-                                      class="sapUiResponsiveMargin">
-                                <f:content>
-                                    <Label id="equipmentNoLabel" text="{i18n>equipmentNoLabel}" />
-                                    <Text id="equipmentNoText" text="{EquipmentNo}" />
-                                    <Label id="equipmentDescriptionLabel" text="{i18n>equipmentDescriptionLabel}" />
-                                    <Text id="equipmentDescriptionText" text="{EquipmentDescription}" />
-                                </f:content>
-                            </f:SimpleForm>
-                            
-                            <!-- Equipment Image Placeholder -->
-                            <VBox id="equipmentImageContainer" height="200px" width="100%" class="sapUiSmallMargin" justifyContent="Center" alignItems="Center">
-                                <core:Icon id="equipmentImage" src="sap-icon://machine" size="8rem" color="Default" />
-                            </VBox>
+                        <VBox id="leftPaneContent" class="sapUiSmallMargin">
+                            <ObjectHeader
+                                id="equipmentHeader"
+                                title="{EquipmentNo}"
+                                number="{UserStatus}">
+                                <ObjectAttribute
+                                    id="equipmentDescriptionAttribute"
+                                    title="{i18n>equipmentDescription}"
+                                    text="{EquipmentDescription}" />
+                            </ObjectHeader>
+                            <Button
+                                id="editEquipmentButton"
+                                text="{i18n>editButtonText}"
+                                press="onEditEquipment"
+                                class="sapUiSmallMarginTop" />
                         </VBox>
                     </l:SplitPane>
                     
-                    <!-- Right side - Details info with tabs -->
-                    <l:SplitPane id="rightPane" requiredParentWidth="800">
-                        <VBox id="rightPaneContainer">
-                            <!-- Top section - Basic info -->
-                            <Panel id="basicInfoPanel" headerText="{i18n>basicEquipmentInfoTitle}" class="sapUiResponsiveMargin">
-                                <f:SimpleForm id="basicInfoForm"
-                                          editable="false"
-                                          layout="ResponsiveGridLayout"
-                                          labelSpanXL="4"
-                                          labelSpanL="4"
-                                          labelSpanM="4"
-                                          labelSpanS="12"
-                                          adjustLabelSpan="false"
-                                          emptySpanXL="0"
-                                          emptySpanL="0"
-                                          emptySpanM="0"
-                                          emptySpanS="0"
-                                          columnsXL="2"
-                                          columnsL="2"
-                                          columnsM="1">
+                    <!-- Right side - 70% width -->
+                    <l:SplitPane id="rightPane" requiredParentWidth="800" demandPane="true">
+                        <VBox id="rightPaneContent">
+                            <!-- Upper section - Basic information -->
+                            <Panel id="basicInfoPanel" headerText="{i18n>basicInformation}" class="sapUiNoContentPadding">
+                                <f:SimpleForm
+                                    id="basicInfoForm"
+                                    editable="false"
+                                    layout="ResponsiveGridLayout"
+                                    labelSpanXL="4"
+                                    labelSpanL="4"
+                                    labelSpanM="4"
+                                    labelSpanS="12"
+                                    adjustLabelSpan="false"
+                                    emptySpanXL="0"
+                                    emptySpanL="0"
+                                    emptySpanM="0"
+                                    emptySpanS="0">
                                     <f:content>
-                                        <Label id="modelNoLabel" text="{i18n>modelNoLabel}" />
+                                        <Label id="equipmentNoLabel" text="{i18n>equipmentNo}" />
+                                        <Text id="equipmentNoText" text="{EquipmentNo}" />
+                                        
+                                        <Label id="equipmentDescriptionLabel" text="{i18n>equipmentDescription}" />
+                                        <Text id="equipmentDescriptionText" text="{EquipmentDescription}" />
+                                        
+                                        <Label id="modelNoLabel" text="{i18n>modelNo}" />
                                         <Text id="modelNoText" text="{ModelNo}" />
-                                        <Label id="manufacturerSerialNoLabel" text="{i18n>manufacturerSerialNoLabel}" />
+                                        
+                                        <Label id="manufacturerSerialNoLabel" text="{i18n>manufacturerSerialNo}" />
                                         <Text id="manufacturerSerialNoText" text="{ManufacturerSerialNo}" />
                                     </f:content>
                                 </f:SimpleForm>
                             </Panel>
                             
-                            <!-- Bottom section - Tabs -->
-                            <IconTabBar id="equipmentDetailsTabs" class="sapUiResponsiveMargin" expandable="false" expanded="true">
+                            <!-- Lower section - Tab container -->
+                            <IconTabBar
+                                id="equipmentDetailsTabs"
+                                class="sapUiSmallMarginTop"
+                                expanded="true"
+                                expandable="false">
                                 <!-- General Tab -->
                                 <items>
-                                    <IconTabFilter id="generalTab" text="{i18n>generalTabTitle}" key="general">
-                                        <f:SimpleForm id="generalInfoForm"
-                                                  editable="false"
-                                                  layout="ResponsiveGridLayout"
-                                                  labelSpanXL="4"
-                                                  labelSpanL="4"
-                                                  labelSpanM="4"
-                                                  labelSpanS="12"
-                                                  adjustLabelSpan="false"
-                                                  emptySpanXL="0"
-                                                  emptySpanL="0"
-                                                  emptySpanM="0"
-                                                  emptySpanS="0"
-                                                  columnsXL="2"
-                                                  columnsL="2"
-                                                  columnsM="1">
+                                    <IconTabFilter
+                                        id="generalTab"
+                                        key="general"
+                                        text="{i18n>generalTabTitle}">
+                                        <f:SimpleForm
+                                            id="generalForm"
+                                            editable="false"
+                                            layout="ResponsiveGridLayout"
+                                            labelSpanXL="4"
+                                            labelSpanL="4"
+                                            labelSpanM="4"
+                                            labelSpanS="12"
+                                            adjustLabelSpan="false"
+                                            emptySpanXL="0"
+                                            emptySpanL="0"
+                                            emptySpanM="0"
+                                            emptySpanS="0">
                                             <f:content>
-                                                <Label id="functionalLocationLabel" text="{i18n>functionalLocationLabel}" />
+                                                <Label id="functionalLocationLabel" text="{i18n>functionalLocation}" />
                                                 <Text id="functionalLocationText" text="{FunctionalLocation}" />
-                                                <Label id="userStatusLabel" text="{i18n>userStatusLabel}" />
+                                                
+                                                <Label id="userStatusLabel" text="{i18n>userStatus}" />
                                                 <Text id="userStatusText" text="{UserStatus}" />
-                                                <Label id="equipmentTypeLabel" text="{i18n>equipmentTypeLabel}" />
+                                                
+                                                <Label id="equipmentTypeLabel" text="{i18n>equipmentType}" />
                                                 <Text id="equipmentTypeText" text="{EquipmentType}" />
-                                                <Label id="authorizationGroupLabel" text="{i18n>authorizationGroupLabel}" />
+                                                
+                                                <Label id="authorizationGroupLabel" text="{i18n>authorizationGroup}" />
                                                 <Text id="authorizationGroupText" text="{AuthorizationGroup}" />
-                                                <Label id="technicalIdLabel" text="{i18n>technicalIdLabel}" />
+                                                
+                                                <Label id="technicalIdLabel" text="{i18n>technicalId}" />
                                                 <Text id="technicalIdText" text="{TechnicalId}" />
-                                                <Label id="plannerGroupLabel" text="{i18n>plannerGroupLabel}" />
+                                                
+                                                <Label id="plannerGroupLabel" text="{i18n>plannerGroup}" />
                                                 <Text id="plannerGroupText" text="{PlannerGroup}" />
-                                                <Label id="mainWorkCenterLabel" text="{i18n>mainWorkCenterLabel}" />
+                                                
+                                                <Label id="mainWorkCenterLabel" text="{i18n>mainWorkCenter}" />
                                                 <Text id="mainWorkCenterText" text="{MainWorkCenter}" />
-                                                <Label id="divisionLabel" text="{i18n>divisionLabel}" />
+                                                
+                                                <Label id="divisionLabel" text="{i18n>division}" />
                                                 <Text id="divisionText" text="{Division}" />
-                                                <Label id="customerLabel" text="{i18n>customerLabel}" />
+                                                
+                                                <Label id="customerLabel" text="{i18n>customer}" />
                                                 <Text id="customerText" text="{Customer}" />
-                                                <Label id="createdByLabel" text="{i18n>createdByLabel}" />
+                                                
+                                                <Label id="createdByLabel" text="{i18n>createdBy}" />
                                                 <Text id="createdByText" text="{CreatedBy}" />
-                                                <Label id="createdOnLabel" text="{i18n>createdOnLabel}" />
-                                                <Text id="createdOnText" text="{path:'CreatedOn', formatter:'.formatter.formatDate'}" />
-                                                <Label id="changedByLabel" text="{i18n>changedByLabel}" />
+                                                
+                                                <Label id="createdOnLabel" text="{i18n>createdOn}" />
+                                                <Text id="createdOnText" text="{path:'CreatedOn', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}" />
+                                                
+                                                <Label id="changedByLabel" text="{i18n>changedBy}" />
                                                 <Text id="changedByText" text="{ChangedBy}" />
-                                                <Label id="changedOnLabel" text="{i18n>changedOnLabel}" />
-                                                <Text id="changedOnText" text="{path:'ChangedOn', formatter:'.formatter.formatDate'}" />
+                                                
+                                                <Label id="changedOnLabel" text="{i18n>changedOn}" />
+                                                <Text id="changedOnText" text="{path:'ChangedOn', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}" />
                                             </f:content>
                                         </f:SimpleForm>
                                     </IconTabFilter>
                                     
                                     <!-- Organization Tab -->
-                                    <IconTabFilter id="organizationTab" text="{i18n>organizationTabTitle}" key="organization">
-                                        <f:SimpleForm id="organizationForm"
-                                                  editable="false"
-                                                  layout="ResponsiveGridLayout"
-                                                  labelSpanXL="4"
-                                                  labelSpanL="4"
-                                                  labelSpanM="4"
-                                                  labelSpanS="12"
-                                                  adjustLabelSpan="false"
-                                                  emptySpanXL="0"
-                                                  emptySpanL="0"
-                                                  emptySpanM="0"
-                                                  emptySpanS="0"
-                                                  columnsXL="1"
-                                                  columnsL="1"
-                                                  columnsM="1">
+                                    <IconTabFilter
+                                        id="organizationTab"
+                                        key="organization"
+                                        text="{i18n>organizationTabTitle}">
+                                        <f:SimpleForm
+                                            id="organizationForm"
+                                            editable="false"
+                                            layout="ResponsiveGridLayout"
+                                            labelSpanXL="4"
+                                            labelSpanL="4"
+                                            labelSpanM="4"
+                                            labelSpanS="12"
+                                            adjustLabelSpan="false"
+                                            emptySpanXL="0"
+                                            emptySpanL="0"
+                                            emptySpanM="0"
+                                            emptySpanS="0">
                                             <f:content>
-                                                <Label id="organizationIdLabel" text="{i18n>organizationIdLabel}" />
+                                                <Label id="organizationIdLabel" text="{i18n>organizationId}" />
                                                 <Text id="organizationIdText" text="{OrganizationId}" />
-                                                <Label id="organizationNameLabel" text="{i18n>organizationNameLabel}" />
+                                                
+                                                <Label id="organizationNameLabel" text="{i18n>organizationName}" />
                                                 <Text id="organizationNameText" text="{OrganizationName}" />
                                             </f:content>
                                         </f:SimpleForm>
@@ -162,11 +173,10 @@
             </l:ResponsiveSplitter>
         </content>
         <footer>
-            <OverflowToolbar id="equipmentDetailsFooter">
-                <Button id="backToListButton" 
-                        text="{i18n>backToListButtonText}" 
-                        press="onNavBack" />
-            </OverflowToolbar>
+            <Toolbar id="equipmentDetailsFooter">
+                <ToolbarSpacer id="equipmentDetailsFooterSpacer" />
+                <Button id="backButton" text="{i18n>backButtonText}" press="onNavBack" />
+            </Toolbar>
         </footer>
     </Page>
 </mvc:View>

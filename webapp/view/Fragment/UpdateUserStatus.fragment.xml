@@ -1,0 +1,52 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+    <Dialog
+        id="userStatusDialog"
+        title="{i18n>updateUserStatusTitle}"
+        class="sapUiContentPadding">
+        <content>
+            <form:SimpleForm
+                editable="true"
+                layout="ResponsiveGridLayout"
+                labelSpanXL="4"
+                labelSpanL="4"
+                labelSpanM="4"
+                labelSpanS="12"
+                adjustLabelSpan="false"
+                emptySpanXL="0"
+                emptySpanL="0"
+                emptySpanM="0"
+                emptySpanS="0"
+                columnsXL="1"
+                columnsL="1"
+                columnsM="1">
+                <form:content>
+                    <Label text="{i18n>selectedEquipmentLabel}" />
+                    <Text text="{userStatus>/count} {i18n>equipmentSelectedText}" />
+                    
+                    <Label text="{i18n>userStatusLabel}" required="true" />
+                    <Select
+                        id="userStatusSelect"
+                        forceSelection="false">
+                        <core:Item key="AVLB" text="{i18n>statusAvailable}" />
+                        <core:Item key="INSP" text="{i18n>statusInspection}" />
+                        <core:Item key="MAINT" text="{i18n>statusMaintenance}" />
+                        <core:Item key="NUSE" text="{i18n>statusNotInUse}" />
+                        <core:Item key="STBY" text="{i18n>statusStandby}" />
+                    </Select>
+                </form:content>
+            </form:SimpleForm>
+        </content>
+        <buttons>
+            <Button
+                text="{i18n>applyButtonText}"
+                type="Emphasized"
+                press="onApplyUserStatus" />
+            <Button
+                text="{i18n>cancelButtonText}"
+                press="onCancelUserStatus" />
+        </buttons>
+    </Dialog>
+</core:FragmentDefinition>
