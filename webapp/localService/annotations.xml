@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns="http://docs.oasis-open.org/odata/ns/edm" >
     <edmx:Reference Uri="localService/metadata.xml">
         <edmx:Include Namespace="EMSD_AMS_SRV" Alias="ams"/>
     </edmx:Reference>
@@ -100,7 +100,6 @@
                         <PropertyPath>CreatedOn</PropertyPath>
                         <PropertyPath>ChangedBy</PropertyPath>  
                         <PropertyPath>ChangedOn</PropertyPath>
-                       
                     </Collection>
                 </Annotation>
                 
@@ -286,6 +285,75 @@
                 </Annotation>
                 <Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="EquipmentTypeNav/Description" />
                 <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment Type" />
+            </Annotations>
+            
+            <!-- Adding Common.Label annotations for all remaining fields -->
+            <Annotations Target="EMSD_AMS_SRV.Equipment/EquipmentNo">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment No" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/EquipmentDescription">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment Description" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/ModelNo">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Model No" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/ManufacturerSerialNo">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Manufacturer Serial No" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/UserStatus">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="User Status" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/AuthorizationGroup">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Authorization Group" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/TechnicalId">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Technical ID" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/PlannerGroup">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Planner Group" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/MainWorkCenter">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Main Work Center" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/Division">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Division" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/Customer">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Customer" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/CreatedBy">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Created By" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/CreatedOn">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Created On" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/ChangedBy">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Changed By" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/ChangedOn">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Changed On" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/OrganizationId">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Organization ID" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.Equipment/OrganizationName">
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Organization Name" />
             </Annotations>
             
         </Schema>

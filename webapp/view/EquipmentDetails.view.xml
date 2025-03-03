@@ -6,164 +6,167 @@
     xmlns:core="sap.ui.core"
     xmlns:smartForm="sap.ui.comp.smartform"
     xmlns:smartField="sap.ui.comp.smartfield"
+    xmlns:smartTable="sap.ui.comp.smarttable"
     controllerName="emsd.ams.controller.EquipmentDetails"
-    displayBlock="true">
+    displayBlock="true"
+>
     <Page
         id="equipmentDetailsPage"
         title="{i18n>equipmentDetailsTitle}"
         showNavButton="true"
-        navButtonPress="onNavBack">
+        navButtonPress="onNavBack"
+    >
         <content>
             <l:ResponsiveSplitter id="detailPageSplitter">
                 <l:PaneContainer id="detailPaneContainer">
                     <!-- Left side - 30% width -->
-                    <l:SplitPane id="leftPane" requiredParentWidth="800" demandPane="true">
-                        <VBox id="leftPaneContent" class="sapUiSmallMargin">
-                            <ObjectHeader
-                                id="equipmentHeader"
-                                title="{EquipmentNo}"
-                                number="{UserStatus}">
-                                <ObjectAttribute
-                                    id="equipmentDescriptionAttribute"
-                                    title="{i18n>equipmentDescription}"
-                                    text="{EquipmentDescription}" />
-                            </ObjectHeader>
-                            <Button
-                                id="editEquipmentButton"
-                                text="{i18n>editButtonText}"
-                                press="onEditEquipment"
-                                class="sapUiSmallMarginTop" />
+                    <l:SplitPane
+                        id="leftPane"
+                        requiredParentWidth="800"
+                        demandPane="true"
+                    >
+                        <VBox
+                            id="leftPaneContent"
+                            class="sapUiSmallMargin"
+                        >
+                            <!-- 功能位置树状结构 -->
+                            <Panel
+                                id="funcLocTreePanel"
+                                headerText="{i18n>functionalLocationHierarchy}"
+                                class="sapUiNoContentPadding"
+                            >
+                                <Tree
+                                    id="funcLocTree"
+                                    items="{
+                                        path: 'funcLocTree>/funcLocTree',
+                                        parameters: {
+                                            arrayNames: ['nodes']
+                                        }
+                                    }"
+                                    mode="SingleSelectMaster"
+                                    selectionChange="onFuncLocNodeSelect"
+                                    includeItemInSelection="true">
+                                    <StandardTreeItem
+                                        title="{funcLocTree>text}"
+                                        description="{funcLocTree>funcLoc}" />
+                                </Tree>
+                            </Panel>
                         </VBox>
                     </l:SplitPane>
-                    
+
                     <!-- Right side - 70% width -->
-                    <l:SplitPane id="rightPane" requiredParentWidth="800" demandPane="true">
+                    <l:SplitPane
+                        id="rightPane"
+                        requiredParentWidth="800"
+                        demandPane="true"
+                    >
                         <VBox id="rightPaneContent">
-                            <!-- Upper section - Basic information -->
-                            <Panel id="basicInfoPanel" headerText="{i18n>basicInformation}" class="sapUiNoContentPadding">
-                                <f:SimpleForm
-                                    id="basicInfoForm"
-                                    editable="false"
-                                    layout="ResponsiveGridLayout"
-                                    labelSpanXL="4"
-                                    labelSpanL="4"
-                                    labelSpanM="4"
-                                    labelSpanS="12"
-                                    adjustLabelSpan="false"
-                                    emptySpanXL="0"
-                                    emptySpanL="0"
-                                    emptySpanM="0"
-                                    emptySpanS="0">
-                                    <f:content>
-                                        <Label id="equipmentNoLabel" text="{i18n>equipmentNo}" />
-                                        <Text id="equipmentNoText" text="{EquipmentNo}" />
-                                        
-                                        <Label id="equipmentDescriptionLabel" text="{i18n>equipmentDescription}" />
-                                        <Text id="equipmentDescriptionText" text="{EquipmentDescription}" />
-                                        
-                                        <Label id="modelNoLabel" text="{i18n>modelNo}" />
-                                        <Text id="modelNoText" text="{ModelNo}" />
-                                        
-                                        <Label id="manufacturerSerialNoLabel" text="{i18n>manufacturerSerialNo}" />
-                                        <Text id="manufacturerSerialNoText" text="{ManufacturerSerialNo}" />
-                                    </f:content>
-                                </f:SimpleForm>
-                            </Panel>
+                            <!-- Edit button in top right -->
+                            <HBox justifyContent="End" class="sapUiSmallMargin">
+                                <Button
+                                    id="editEquipmentButton"
+                                    text="{i18n>editButtonText}"
+                                    press="onEditEquipment"
+                                    class="sapUiSmallMarginTop"
+                                    visible="{= !${/editMode}}"
+                                />
+                            </HBox>
                             
+                            <!-- Upper section - Basic information using SmartForm -->
+                            <smartForm:SmartForm
+                                id="basicInfoSmartForm"
+                                entityType="Equipment"
+                                editTogglable="{/editMode}"
+                                title="{i18n>basicInformation}"
+                                useHorizontalLayout="true"
+                            >
+                                <smartForm:Group id="basicInfoGroup" label="{i18n>basicInformation}">
+                                    <smartForm:GroupElement id="equipmentNoElement">
+                                        <smartField:SmartField id="equipmentNoSmartField" value="{EquipmentNo}" editable="false" />
+                                    </smartForm:GroupElement>
+                                    <smartForm:GroupElement id="equipmentDescriptionElement">
+                                        <smartField:SmartField id="equipmentDescriptionSmartField" value="{EquipmentDescription}" />
+                                    </smartForm:GroupElement>
+                                    <smartForm:GroupElement id="idmodelNoElement">
+                                        <smartField:SmartField id="modelNoSmartField" value="{ModelNo}" />
+                                    </smartForm:GroupElement>
+                                    <smartForm:GroupElement id="manufacturerSerialNoElement">
+                                        <smartField:SmartField id="manufacturerSerialNoSmartField" value="{ManufacturerSerialNo}" />
+                                    </smartForm:GroupElement>
+                                </smartForm:Group>
+                            </smartForm:SmartForm>
+
                             <!-- Lower section - Tab container -->
                             <IconTabBar
                                 id="equipmentDetailsTabs"
                                 class="sapUiSmallMarginTop"
                                 expanded="true"
-                                expandable="false">
-                                <!-- General Tab -->
+                                expandable="false"
+                            >
+                                <!-- General Tab with SmartForm -->
                                 <items>
                                     <IconTabFilter
                                         id="generalTab"
                                         key="general"
-                                        text="{i18n>generalTabTitle}">
-                                        <f:SimpleForm
-                                            id="generalForm"
-                                            editable="false"
-                                            layout="ResponsiveGridLayout"
-                                            labelSpanXL="4"
-                                            labelSpanL="4"
-                                            labelSpanM="4"
-                                            labelSpanS="12"
-                                            adjustLabelSpan="false"
-                                            emptySpanXL="0"
-                                            emptySpanL="0"
-                                            emptySpanM="0"
-                                            emptySpanS="0">
-                                            <f:content>
-                                                <Label id="functionalLocationLabel" text="{i18n>functionalLocation}" />
-                                                <Text id="functionalLocationText" text="{FunctionalLocation}" />
-                                                
-                                                <Label id="userStatusLabel" text="{i18n>userStatus}" />
-                                                <Text id="userStatusText" text="{UserStatus}" />
-                                                
-                                                <Label id="equipmentTypeLabel" text="{i18n>equipmentType}" />
-                                                <Text id="equipmentTypeText" text="{EquipmentType}" />
-                                                
-                                                <Label id="authorizationGroupLabel" text="{i18n>authorizationGroup}" />
-                                                <Text id="authorizationGroupText" text="{AuthorizationGroup}" />
-                                                
-                                                <Label id="technicalIdLabel" text="{i18n>technicalId}" />
-                                                <Text id="technicalIdText" text="{TechnicalId}" />
-                                                
-                                                <Label id="plannerGroupLabel" text="{i18n>plannerGroup}" />
-                                                <Text id="plannerGroupText" text="{PlannerGroup}" />
-                                                
-                                                <Label id="mainWorkCenterLabel" text="{i18n>mainWorkCenter}" />
-                                                <Text id="mainWorkCenterText" text="{MainWorkCenter}" />
-                                                
-                                                <Label id="divisionLabel" text="{i18n>division}" />
-                                                <Text id="divisionText" text="{Division}" />
-                                                
-                                                <Label id="customerLabel" text="{i18n>customer}" />
-                                                <Text id="customerText" text="{Customer}" />
-                                                
-                                                <Label id="createdByLabel" text="{i18n>createdBy}" />
-                                                <Text id="createdByText" text="{CreatedBy}" />
-                                                
-                                                <Label id="createdOnLabel" text="{i18n>createdOn}" />
-                                                <Text id="createdOnText" text="{path:'CreatedOn', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}" />
-                                                
-                                                <Label id="changedByLabel" text="{i18n>changedBy}" />
-                                                <Text id="changedByText" text="{ChangedBy}" />
-                                                
-                                                <Label id="changedOnLabel" text="{i18n>changedOn}" />
-                                                <Text id="changedOnText" text="{path:'ChangedOn', type:'sap.ui.model.type.Date', formatOptions: { style: 'medium' }}" />
-                                            </f:content>
-                                        </f:SimpleForm>
+                                        text="{i18n>generalTabTitle}"
+                                    >
+                                        <smartForm:SmartForm
+                                            id="generalSmartForm"
+                                            entityType="Equipment"
+                                            editTogglable="{/editMode}"
+                                        >
+                                            <smartForm:Group id="generalInfoGroup" label="{i18n>generalInformation}">
+                                                <smartForm:GroupElement id="idfunctionalLocationElement">
+                                                    <smartField:SmartField id="functionalLocationSmartField" value="{FunctionalLocation}" />
+                                                </smartForm:GroupElement>
+                                                <smartForm:GroupElement id="iduserStatusElement">
+                                                    <smartField:SmartField id="userStatusSmartField" value="{UserStatus}" />
+                                                </smartForm:GroupElement>
+                                                <smartForm:GroupElement id="equipmentTypeElement">
+                                                    <smartField:SmartField id="equipmentTypeSmartField" value="{EquipmentType}" />
+                                                </smartForm:GroupElement>
+                                                <smartForm:GroupElement id="authorizationGroupElement">
+                                                    <smartField:SmartField id="authorizationGroupSmartField" value="{AuthorizationGroup}" />
+                                                </smartForm:GroupElement>
+                                            </smartForm:Group>
+                                            
+                                            <smartForm:Group id="technicalInfoGroup" label="{i18n>technicalInformation}">
+                                                <smartForm:GroupElement id="technicalIdElement">
+                                                    <smartField:SmartField id="technicalIdSmartField" value="{TechnicalId}" />
+                                                </smartForm:GroupElement>
+                                                <smartForm:GroupElement id="plannerGroupElement">
+                                                    <smartField:SmartField id="plannerGroupSmartField" value="{PlannerGroup}" />
+                                                </smartForm:GroupElement>
+                                                <smartForm:GroupElement id="mainWorkCenterElement">
+                                                    <smartField:SmartField id="mainWorkCenterSmartField" value="{MainWorkCenter}" />
+                                                </smartForm:GroupElement>
+                                                <smartForm:GroupElement id="divisionElement">
+                                                    <smartField:SmartField id="divisionSmartField" value="{Division}" />
+                                                </smartForm:GroupElement>
+                                            </smartForm:Group>
+                                        </smartForm:SmartForm>
                                     </IconTabFilter>
-                                    
-                                    <!-- Organization Tab -->
+
+                                    <!-- Organization Tab with SmartForm -->
                                     <IconTabFilter
                                         id="organizationTab"
                                         key="organization"
-                                        text="{i18n>organizationTabTitle}">
-                                        <f:SimpleForm
-                                            id="organizationForm"
-                                            editable="false"
-                                            layout="ResponsiveGridLayout"
-                                            labelSpanXL="4"
-                                            labelSpanL="4"
-                                            labelSpanM="4"
-                                            labelSpanS="12"
-                                            adjustLabelSpan="false"
-                                            emptySpanXL="0"
-                                            emptySpanL="0"
-                                            emptySpanM="0"
-                                            emptySpanS="0">
-                                            <f:content>
-                                                <Label id="organizationIdLabel" text="{i18n>organizationId}" />
-                                                <Text id="organizationIdText" text="{OrganizationId}" />
-                                                
-                                                <Label id="organizationNameLabel" text="{i18n>organizationName}" />
-                                                <Text id="organizationNameText" text="{OrganizationName}" />
-                                            </f:content>
-                                        </f:SimpleForm>
+                                        text="{i18n>organizationTabTitle}"
+                                    >
+                                        <smartForm:SmartForm
+                                            id="organizationSmartForm"
+                                            entityType="Equipment"
+                                            editTogglable="{/editMode}"
+                                        >
+                                            <smartForm:Group id="organizationInfoGroup" label="{i18n>organizationInformation}">
+                                                <smartForm:GroupElement id="organizationIdElement">
+                                                    <smartField:SmartField id="organizationIdSmartField" value="{OrganizationId}" />
+                                                </smartForm:GroupElement>
+                                                <smartForm:GroupElement id="organizationNameElement">
+                                                    <smartField:SmartField id="organizationNameSmartField" value="{OrganizationName}" />
+                                                </smartForm:GroupElement>
+                                            </smartForm:Group>
+                                        </smartForm:SmartForm>
                                     </IconTabFilter>
                                 </items>
                             </IconTabBar>
@@ -175,7 +178,25 @@
         <footer>
             <Toolbar id="equipmentDetailsFooter">
                 <ToolbarSpacer id="equipmentDetailsFooterSpacer" />
-                <Button id="backButton" text="{i18n>backButtonText}" press="onNavBack" />
+                <Button
+                    id="saveButton"
+                    text="{i18n>saveButtonText}"
+                    type="Emphasized"
+                    press="onSaveEquipment"
+                    visible="{/editMode}"
+                />
+                <Button
+                    id="cancelButton"
+                    text="{i18n>cancelButtonText}"
+                    press="onCancelEdit"
+                    visible="{/editMode}"
+                />
+                <Button
+                    id="backButton"
+                    text="{i18n>backButtonText}"
+                    press="onNavBack"
+                    visible="{= !${/editMode}}"
+                />
             </Toolbar>
         </footer>
     </Page>

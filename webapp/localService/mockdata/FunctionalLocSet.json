@@ -1,589 +1,715 @@
 {
-    "d": {
+  "d": {
       "results": [
-        {
-          "FunctionalLoc": "LDMS",
-          "Description": "LANDMARK SOUTH",
-          "ValidFrom": "/Date(1740326400000)/",  
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('LDMS')/Children"
-            }
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS",
+              "Description": "LANDMARK SOUTH",
+              "ValidFrom": "/Date(1740873600000)/",  
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS')/Children"
+                  }
+              },
+              "Parent": null
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001",
+              "Description": "LANDMARK SOUTH, SPORTS AND TOURISM BUREAU (CSTB)",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001')/Parent",
+                      "FunctionalLoc": "LDMS"  
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-AC",
+              "Description": "HEATING, VENTILATION & AIR-COND INST",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-AC')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-AC')/Parent",
+                      "FunctionalLoc": "LDMS-001" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11079912",
+              "Description": "Air Side",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11079912')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11079912')/Parent",
+                      "FunctionalLoc": "LDMS-001-AC" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070028",
+              "Description": "Chiller",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070028')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070028')/Parent",
+                      "FunctionalLoc": "11079912" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070029",
+              "Description": "Chiller",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070029')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070029')/Parent",
+                      "FunctionalLoc": "11079912" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070030",
+              "Description": "Chiller",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070030')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070030')/Parent",
+                      "FunctionalLoc": "11079912" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070031",
+              "Description": "CHWP-A-SF-01",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070031')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070031')/Parent",
+                      "FunctionalLoc": "11079912" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070034",
+              "Description": "CHWP-A-3F-02",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070034')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070034')/Parent",
+                      "FunctionalLoc": "11079912" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070035",
+              "Description": "CHWP-A-3F-03",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070035')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070035')/Parent",
+                      "FunctionalLoc": "11079912" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070036",
+              "Description": "CHWP-A-3F-04",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070036')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070036')/Parent",
+                      "FunctionalLoc": "11079912" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070037",
+              "Description": "Broadcasting Reception System",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070037')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070037')/Parent",
+                      "FunctionalLoc": "LDMS-001-AC" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-BR",
+              "Description": "BUILDING AUTOMATION SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-BR')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-BR')/Parent",
+                      "FunctionalLoc": "LDMS-001" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070038",
+              "Description": "COMPRESSOR AIR PNEU SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070038')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070038')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070039",
+              "Description": "E&M BLDG INSTALLATION",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070039')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070039')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070040",
+              "Description": "ELECT SUPPLY & DISTRIBUTION SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070040')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070040')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070041",
+              "Description": "GENERAL B&M SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070041')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070041')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070042",
+              "Description": "VEHICLE SERVICING SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070042')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070042')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070043",
+              "Description": "FUEL STORAGE & DISPENSING SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070043')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070043')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070044",
+              "Description": "FLOODLIGHTING SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070044')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070044')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070045",
+              "Description": "FIRE SERVICE SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070045')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070045')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070046",
+              "Description": "GENERAL ELECTRONICS EQUIPMENT",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070046')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070046')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070047",
+              "Description": "GONDOLA SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070047')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070047')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070048",
+              "Description": "HOSPITAL ENGINEERING EQUIPMENT",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070048')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070048')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070049",
+              "Description": "OIL FIRE HOT WATER SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070049')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070049')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070050",
+              "Description": "LIFT & ESCALATOR SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070050')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070050')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070051",
+              "Description": "GENERAL & STREET LIGHTING SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070051')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070051')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070052",
+              "Description": "LIFTG, HANDLING & CONVEYING SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070052')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070052')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070053",
+              "Description": "LIQUIFIED PETROLEUM GAS SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070053')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070053')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070054",
+              "Description": "MECH VENTILATION & EXHAUST SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070054')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070054')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070055",
+              "Description": "PLUMBING, DRAINAGE & SEWAGE INST",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070055')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070055')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070056",
+              "Description": "STEAM AND HW SUPPLY SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070056')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070056')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "11070057",
+              "Description": "BURGLAR ALARM & SECURITY SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070057')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('11070057')/Parent",
+                      "FunctionalLoc": "LDMS-001-BR" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-AC",
+              "Description": "HEATING, VENTILATION & AIR-COND INST",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-AC')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-AC')/Parent",
+                      "FunctionalLoc": "LDMS-001" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-BR",
+              "Description": "BROADCASTING RECEPTION SYSTEM INST",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-BR')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-BR')/Parent",
+                      "FunctionalLoc": "LDMS-001" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-BU",
+              "Description": "BUILDING AUTOMATION SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-BU')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-BU')/Parent",
+                      "FunctionalLoc": "LDMS-001" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-CP",
+              "Description": "COMPRESSED AIR PNEU SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-CP')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-CP')/Parent",
+                      "FunctionalLoc": "LDMS-001" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-EB",
+              "Description": "E&M BLDG INSTALLATION",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-EB')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-EB')/Parent",
+                      "FunctionalLoc": "LDMS-001" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-EM",
+              "Description": "ELECT SUPPLY & DISTRIBUTION SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-EM')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-EM')/Parent",
+                      "FunctionalLoc": "LDMS-001" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-ES",
+              "Description": "GENERAL B&M SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-ES')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-ES')/Parent",
+                      "FunctionalLoc": "LDMS-001" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-FD",
+              "Description": "VEHICLE SERVICING SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-FD')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-FD')/Parent",
+                      "FunctionalLoc": "LDMS-001" 
+                  }
+              }
+          },
+          {
+              "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
+              "FunctionalLoc": "LDMS-001-FL",
+              "Description": "FUEL STORAGE & DISPENSING SYSTEM",
+              "ValidFrom": "/Date(1740873600000)/",
+              "Children": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-FL')/Children"
+                  }
+              },
+              "Parent": {
+                  "__deferred": {
+                      "uri": "FunctionalLocSet('LDMS-001-FL')/Parent",
+                      "FunctionalLoc": "LDMS-001"  
+                  }
+              }
           }
-        },
-        {
-          "FunctionalLoc": "LDMS-001",
-          "Description": "LANDMARK SOUTH, SPORTS AND TOURISM BUREAU (CSTB)",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('LDMS-001')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "LDMS-001-AC",
-          "Description": "HEATING, VENTILATION & AIR-COND INST",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('LDMS-001-AC')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11079912",
-          "Description": "Air Side",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11079912')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070028",
-          "Description": "Chiller",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070028')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070029",
-          "Description": "Chiller",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070029')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070030",
-          "Description": "Chiller",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070030')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070031",
-          "Description": "CHWP-A-SF-01",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070031')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070034",
-          "Description": "CHWP-A-3F-02",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070034')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070035",
-          "Description": "CHWP-A-3F-03",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070035')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070036",
-          "Description": "CHWP-A-3F-04",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070036')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070037",
-          "Description": "Broadcasting Reception System",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070037')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "LDMS-001-BR",
-          "Description": "BUILDING AUTOMATION SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('LDMS-001-BR')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070038",
-          "Description": "COMPRESSOR AIR PNEU SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070038')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070039",
-          "Description": "E&M BLDG INSTALLATION",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070039')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070040",
-          "Description": "ELECT SUPPLY & DISTRIBUTION SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070040')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070041",
-          "Description": "GENERAL B&M SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070041')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070042",
-          "Description": "VEHICLE SERVICING SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070042')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070043",
-          "Description": "FUEL STORAGE & DISPENSING SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070043')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070044",
-          "Description": "FLOODLIGHTING SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070044')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070045",
-          "Description": "FIRE SERVICE SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070045')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070046",
-          "Description": "GENERAL ELECTRONICS EQUIPMENT",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070046')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070047",
-          "Description": "GONDOLA SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070047')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070048",
-          "Description": "HOSPITAL ENGINEERING EQUIPMENT",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070048')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070049",
-          "Description": "OIL FIRE HOT WATER SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070049')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070050",
-          "Description": "LIFT & ESCALATOR SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070050')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070051",
-          "Description": "GENERAL & STREET LIGHTING SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070051')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070052",
-          "Description": "LIFTG, HANDLING & CONVEYING SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070052')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070053",
-          "Description": "LIQUIFIED PETROLEUM GAS SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070053')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070054",
-          "Description": "MECH VENTILATION & EXHAUST SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070054')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070055",
-          "Description": "PLUMBING, DRAINAGE & SEWAGE INST",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070055')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070056",
-          "Description": "STEAM AND HW SUPPLY SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070056')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "11070057",
-          "Description": "BURGLAR ALARM & SECURITY SYSTEM",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('11070057')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "BATHH-KLC",
-          "Description": "BATHHOUSES / LATRINES-KOWLOON CITY",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('BATHH-KLC')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "BATHH-KLC-012",
-          "Description": "KOWLOON CITY ROAD PUBLIC TOILET",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('BATHH-KLC-012')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "BL107",
-          "Description": "LAGUNA CITY PUBLIC TRANSPORT TERMINUS",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('BL107')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CH",
-          "Description": "CITY HALL",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CH')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CHCP",
-          "Description": "CITY HALL CARPARK",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CHCP')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CHHKC",
-          "Description": "CHINA HK CITY",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CHHKC')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CHPZ-001",
-          "Description": "KLN CITY IFSC",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CHPZ-001')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CHPZ-002",
-          "Description": "KOWLOON CITY SWD-FIELD UNIT",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CHPZ-002')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CHPZ-003",
-          "Description": "KOWLOON CITY SWD-FSC",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CHPZ-003')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CITY1",
-          "Description": "CITY ONE SHATIN",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CITY1')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CITY1-002",
-          "Description": "CITY ONE SHATIN - C&ED QRS",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CITY1-002')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CITY1-003",
-          "Description": "CITY ONE SHATIN - CSD QRS",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CITY1-003')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CITY1-004",
-          "Description": "CITY ONE SHATIN - FSD QRS",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CITY1-004')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CITY1-005",
-          "Description": "CITY ONE SHATIN - HKPF QRS",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CITY1-005')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CITY1-006",
-          "Description": "CITY ONE SHATIN - ICAC QRS",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CITY1-006')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CITY1-007",
-          "Description": "CITY ONE SHATIN - IMMD QRS",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CITY1-007')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CITYP",
-          "Description": "CITYPLAZA III",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CITYP')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CRHA-001",
-          "Description": "KLN CITY CARPENTER ROAD PARK",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CRHA-001')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CTHA",
-          "Description": "CITY HALL",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CTHA')/Children"
-            }
-          }
-        },
-        {
-          "FunctionalLoc": "CTHA-001",
-          "Description": "CITY HALL - MARRIAGE REGISTRY",
-          "ValidFrom": "/Date(1740326400000)/",
-          "__metadata": { "type": "EMSD_AMS_SRV.FunctionalLoc" },
-          "Children": {
-            "__deferred": {
-              "uri": "FunctionalLocSet('CTHA-001')/Children"
-            }
-          }
-        }
       ]
-    }
   }
+}

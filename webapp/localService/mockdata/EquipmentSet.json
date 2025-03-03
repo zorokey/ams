@@ -6,7 +6,7 @@
         "EquipmentDescription": "Pump P-101",
         "ModelNo": "EQ-P101",
         "ManufacturerSerialNo": "SN-123456789",
-        "FunctionalLocation": "LDMS-001-AC",
+        "FunctionalLocation": "11070031",
         "UserStatus": "AVLB",
         "EquipmentType": "ZAC1001",
         "AuthorizationGroup": "MAINT",

@@ -38,9 +38,10 @@
             <EntityType Name="FunctionalLoc">
                 <Key><PropertyRef Name="FunctionalLoc"/></Key>
                 <Property Name="FunctionalLoc" Type="Edm.String" Nullable="false" MaxLength="30" />
-                <Property Name="Description" Type="Edm.String" MaxLength="100" />
-                <Property Name="ValidFrom" Type="Edm.DateTime" />
-                <NavigationProperty Name="Children" Relationship="EMSD_AMS_SRV.FunctionalLoc_Children" FromRole="Parent" ToRole="Child" />
+                <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="100" />
+                <Property Name="ValidFrom" Type="Edm.DateTime" Nullable="false" />
+                <NavigationProperty Name="Children" Relationship="EMSD_AMS_SRV.FunctionalLoc_Children" FromRole="Parent" ToRole="Child" Multiplicity="*" />
+                <NavigationProperty Name="Parent" Relationship="EMSD_AMS_SRV.FunctionalLoc_Children" FromRole="Child" ToRole="Parent" Multiplicity="0..1" />
             </EntityType>
 
             <!-- Class EntityType (已修正Characteristics为集合类型) -->
@@ -112,6 +113,7 @@
                 <EntitySet Name="ClassSet" EntityType="EMSD_AMS_SRV.Class"/>
                 <EntitySet Name="ClassificationSet" EntityType="EMSD_AMS_SRV.Classification"/>
                 <EntitySet Name="EquipmentTypeSet" EntityType="EMSD_AMS_SRV.EquipmentType"/>
+                
                 
                 <!-- AssociationSets -->
                 <AssociationSet Name="EquipmentFunctionalLocSet" Association="EMSD_AMS_SRV.Equipment_FunctionalLoc">
