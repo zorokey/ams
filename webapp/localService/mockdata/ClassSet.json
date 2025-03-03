@@ -1,0 +1,98 @@
+{
+    "d": {
+      "results": [
+        {
+          "Class": "CL_ZAC012_AC1201",
+          "ClassType": "002",
+          "ClassTypeDescription": "Equipment Class",
+          "ChangeNumber": "",
+          "ValidFrom": "/Date(1740326400000)/",
+          "__metadata": { "type": "EMSD_AMS_SRV.Class" },
+          "Characteristics": {
+            "results": [
+              {
+                "Name": "CHILLER_TYPE_AC1201",
+                "Description": "Equipment Type",
+                "DataType": "CHAR",
+                "Length": 30,
+                "DecimalPlaces": 0,
+                "TemplateValue": true
+              },
+              {
+                "Name": "CHILLER_CONFIGURATION_AC1201",
+                "Description": "Configuration",
+                "DataType": "CHAR",
+                "Length": 30,
+                "DecimalPlaces": 0,
+                "TemplateValue": true
+              },
+              {
+                "Name": "CHILLER_DESCRIPTION_AC1201",
+                "Description": "Equipment Description",
+                "DataType": "CHAR",
+                "Length": 15,
+                "DecimalPlaces": 0,
+                "TemplateValue": true
+              },
+              {
+                "Name": "CHILLER_LOCATION_AC1201",
+                "Description": "Equipment Location",
+                "DataType": "CHAR",
+                "Length": 30,
+                "DecimalPlaces": 0,
+                "TemplateValue": true
+              },
+              {
+                "Name": "CHILLER_MAKE_AC1201",
+                "Description": "Make",
+                "DataType": "CHAR",
+                "Length": 30,
+                "DecimalPlaces": 0,
+                "TemplateValue": true
+              },
+              {
+                "Name": "CHILLER_MODEL_AC1201",
+                "Description": "Model",
+                "DataType": "CHAR",
+                "Length": 30,
+                "DecimalPlaces": 0,
+                "TemplateValue": true
+              },
+              {
+                "Name": "CHILLER_CAPACITY_AC1201",
+                "Description": "Cooling Capacity (kW)",
+                "DataType": "NUM",
+                "Length": 6,
+                "DecimalPlaces": 2,
+                "TemplateValue": true
+              },
+              {
+                "Name": "CHILLER_COMPRESSOR_AC1201",
+                "Description": "Compressor",
+                "DataType": "CHAR",
+                "Length": 30,
+                "DecimalPlaces": 0,
+                "TemplateValue": true
+              },
+              {
+                "Name": "CHILLER_REFRIGERANT_AC1201",
+                "Description": "Refrigerant",
+                "DataType": "CHAR",
+                "Length": 30,
+                "DecimalPlaces": 0,
+                "TemplateValue": true
+              },
+              {
+                "Name": "CHILLER_POWER_INPUT_AC1201",
+                "Description": "Rated Power Input (kW)",
+                "DataType": "NUM",
+                "Length": 6,
+                "DecimalPlaces": 2,
+                "TemplateValue": false
+              }
+            ]
+          }
+        }
+      ]
+    }
+  }

@@ -6,9 +6,9 @@
         "EquipmentDescription": "Pump P-101",
         "ModelNo": "EQ-P101",
         "ManufacturerSerialNo": "SN-123456789",
-        "FunctionalLocation": "PLANT-01-AREA-01-PUMP-01",
+        "FunctionalLocation": "LDMS-001-AC",
         "UserStatus": "AVLB",
-        "EquipmentType": "PUMP",
+        "EquipmentType": "ZAC1001",
         "AuthorizationGroup": "MAINT",
         "TechnicalId": "P-101",
         "PlannerGroup": "100",
@@ -20,16 +20,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1614556800000)/",
         "OrganizationId": "ORG-1000",
-        "OrganizationName": "Maintenance Department"
+        "OrganizationName": "Maintenance Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000001')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000001')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000001')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000002",
         "EquipmentDescription": "Compressor C-101",
         "ModelNo": "EQ-C101",
         "ManufacturerSerialNo": "SN-987654321",
-        "FunctionalLocation": "PLANT-01-AREA-02-COMP-01",
+        "FunctionalLocation": "BATHH-KLC-012",
         "UserStatus": "MAINT",
-        "EquipmentType": "COMP",
+        "EquipmentType": "ZAC1001",
         "AuthorizationGroup": "MAINT",
         "TechnicalId": "C-101",
         "PlannerGroup": "100",
@@ -41,16 +57,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1618358400000)/",
         "OrganizationId": "ORG-1000",
-        "OrganizationName": "Maintenance Department"
+        "OrganizationName": "Maintenance Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000002')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000002')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000002')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000003",
         "EquipmentDescription": "Motor M-101",
         "ModelNo": "EQ-M101",
         "ManufacturerSerialNo": "SN-456789123",
-        "FunctionalLocation": "PLANT-01-AREA-03-MOTR-01",
+        "FunctionalLocation": "BL107",
         "UserStatus": "AVLB",
-        "EquipmentType": "MOTR",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "ELEC",
         "TechnicalId": "M-101",
         "PlannerGroup": "200",
@@ -62,16 +94,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1614729600000)/",
         "OrganizationId": "ORG-2000",
-        "OrganizationName": "Electrical Department"
+        "OrganizationName": "Electrical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000003')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000003')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000003')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000004",
         "EquipmentDescription": "Generator G-101",
         "ModelNo": "EQ-G101",
         "ManufacturerSerialNo": "SN-741852963",
-        "FunctionalLocation": "PLANT-01-AREA-04-GENR-01",
+        "FunctionalLocation": "CH",
         "UserStatus": "MALF",
-        "EquipmentType": "GENR",
+        "EquipmentType": "ZAC1004",
         "AuthorizationGroup": "ELEC",
         "TechnicalId": "G-101",
         "PlannerGroup": "200",
@@ -83,16 +131,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1619568000000)/",
         "OrganizationId": "ORG-2000",
-        "OrganizationName": "Electrical Department"
+        "OrganizationName": "Electrical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000004')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000004')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000004')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000005",
         "EquipmentDescription": "Valve V-101",
         "ModelNo": "EQ-V101",
         "ManufacturerSerialNo": "SN-369258147",
-        "FunctionalLocation": "PLANT-01-AREA-05-VALV-01",
+        "FunctionalLocation": "CHCP",
         "UserStatus": "AVLB",
-        "EquipmentType": "VALV",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "MECH",
         "TechnicalId": "V-101",
         "PlannerGroup": "300",
@@ -104,16 +168,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1614902400000)/",
         "OrganizationId": "ORG-3000",
-        "OrganizationName": "Mechanical Department"
+        "OrganizationName": "Mechanical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000005')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000005')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000005')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000006",
         "EquipmentDescription": "Tank T-101",
         "ModelNo": "EQ-T101",
         "ManufacturerSerialNo": "SN-852963741",
-        "FunctionalLocation": "PLANT-01-AREA-06-TANK-01",
+        "FunctionalLocation": "CHHKC",
         "UserStatus": "AVLB",
-        "EquipmentType": "TANK",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "T-101",
         "PlannerGroup": "400",
@@ -125,16 +205,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1620777600000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000006')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000006')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000006')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000007",
         "EquipmentDescription": "Heat Exchanger HE-101",
         "ModelNo": "EQ-HE101",
         "ManufacturerSerialNo": "SN-147258369",
-        "FunctionalLocation": "PLANT-01-AREA-07-HEXC-01",
+        "FunctionalLocation": "CHPZ-001",
         "UserStatus": "MAINT",
-        "EquipmentType": "HEXC",
+        "EquipmentType": "ZAC1004",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "HE-101",
         "PlannerGroup": "400",
@@ -146,16 +242,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1621987200000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000007')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000007')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000007')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000008",
         "EquipmentDescription": "Dryer D-101",
         "ModelNo": "EQ-D101",
         "ManufacturerSerialNo": "SN-963741852",
-        "FunctionalLocation": "PLANT-01-AREA-08-DRYR-01",
+        "FunctionalLocation": "CHPZ-002",
         "UserStatus": "AVLB",
-        "EquipmentType": "DRYR",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "D-101",
         "PlannerGroup": "400",
@@ -167,16 +279,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1615161600000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000008')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000008')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000008')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000009",
         "EquipmentDescription": "Air Conditioner AC-101",
         "ModelNo": "EQ-AC101",
         "ManufacturerSerialNo": "SN-258147369",
-        "FunctionalLocation": "PLANT-01-AREA-09-AIRC-01",
+        "FunctionalLocation": "CHPZ-003",
         "UserStatus": "MALF",
-        "EquipmentType": "AIRC",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "HVAC",
         "TechnicalId": "AC-101",
         "PlannerGroup": "500",
@@ -188,16 +316,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1623196800000)/",
         "OrganizationId": "ORG-5000",
-        "OrganizationName": "HVAC Department"
+        "OrganizationName": "HVAC Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000009')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000009')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000009')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000010",
         "EquipmentDescription": "Conveyor CV-101",
         "ModelNo": "EQ-CV101",
         "ManufacturerSerialNo": "SN-654321987",
-        "FunctionalLocation": "PLANT-01-AREA-10-CONV-01",
+        "FunctionalLocation": "CITY1",
         "UserStatus": "AVLB",
-        "EquipmentType": "CONV",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "MECH",
         "TechnicalId": "CV-101",
         "PlannerGroup": "300",
@@ -209,16 +353,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1615334400000)/",
         "OrganizationId": "ORG-3000",
-        "OrganizationName": "Mechanical Department"
+        "OrganizationName": "Mechanical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000010')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000010')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000010')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000011",
         "EquipmentDescription": "Fan F-101",
         "ModelNo": "EQ-F101",
         "ManufacturerSerialNo": "SN-789123456",
-        "FunctionalLocation": "PLANT-01-AREA-11-FAN-01",
+        "FunctionalLocation": "CITY1-002",
         "UserStatus": "MAINT",
-        "EquipmentType": "FAN",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "HVAC",
         "TechnicalId": "F-101",
         "PlannerGroup": "500",
@@ -230,16 +390,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1624406400000)/",
         "OrganizationId": "ORG-5000",
-        "OrganizationName": "HVAC Department"
+        "OrganizationName": "HVAC Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000011')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000011')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000011')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000012",
         "EquipmentDescription": "Cooler CL-101",
         "ModelNo": "EQ-CL101",
         "ManufacturerSerialNo": "SN-321654987",
-        "FunctionalLocation": "PLANT-01-AREA-12-COOL-01",
+        "FunctionalLocation": "CITY1-003",
         "UserStatus": "AVLB",
-        "EquipmentType": "COOL",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "CL-101",
         "PlannerGroup": "400",
@@ -251,16 +427,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1615507200000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000012')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000012')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000012')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000013",
         "EquipmentDescription": "Boiler B-101",
         "ModelNo": "EQ-B101",
         "ManufacturerSerialNo": "SN-147369258",
-        "FunctionalLocation": "PLANT-01-AREA-13-BOIL-01",
+        "FunctionalLocation": "CITY1-004",
         "UserStatus": "MALF",
-        "EquipmentType": "BOIL",
+        "EquipmentType": "ZAC1001",
         "AuthorizationGroup": "MAINT",
         "TechnicalId": "B-101",
         "PlannerGroup": "100",
@@ -272,16 +464,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1625616000000)/",
         "OrganizationId": "ORG-1000",
-        "OrganizationName": "Maintenance Department"
+        "OrganizationName": "Maintenance Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000013')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000013')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000013')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000014",
         "EquipmentDescription": "Turbine T-101",
         "ModelNo": "EQ-TB101",
         "ManufacturerSerialNo": "SN-852741963",
-        "FunctionalLocation": "PLANT-01-AREA-14-TURB-01",
+        "FunctionalLocation": "CITY1-005",
         "UserStatus": "AVLB",
-        "EquipmentType": "TURB",
+        "EquipmentType": "ZAC1004",
         "AuthorizationGroup": "ELEC",
         "TechnicalId": "T-101",
         "PlannerGroup": "200",
@@ -293,16 +501,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1615680000000)/",
         "OrganizationId": "ORG-2000",
-        "OrganizationName": "Electrical Department"
+        "OrganizationName": "Electrical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000014')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000014')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000014')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000015",
         "EquipmentDescription": "Separator S-101",
         "ModelNo": "EQ-S101",
         "ManufacturerSerialNo": "SN-369147258",
-        "FunctionalLocation": "PLANT-01-AREA-15-SEPR-01",
+        "FunctionalLocation": "CITY1-006",
         "UserStatus": "MAINT",
-        "EquipmentType": "SEPR",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "S-101",
         "PlannerGroup": "400",
@@ -314,16 +538,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1626825600000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000015')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000015')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000015')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000016",
         "EquipmentDescription": "Mixer M-102",
         "ModelNo": "EQ-M102",
         "ManufacturerSerialNo": "SN-741258963",
-        "FunctionalLocation": "PLANT-01-AREA-16-MIXR-01",
+        "FunctionalLocation": "CITY1-007",
         "UserStatus": "AVLB",
-        "EquipmentType": "MIXR",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "MECH",
         "TechnicalId": "M-102",
         "PlannerGroup": "300",
@@ -335,16 +575,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1615852800000)/",
         "OrganizationId": "ORG-3000",
-        "OrganizationName": "Mechanical Department"
+        "OrganizationName": "Mechanical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000016')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000016')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000016')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000017",
         "EquipmentDescription": "Cooling Tower CT-101",
         "ModelNo": "EQ-CT101",
         "ManufacturerSerialNo": "SN-258369147",
-        "FunctionalLocation": "PLANT-01-AREA-17-CTWR-01",
+        "FunctionalLocation": "CITYP",
         "UserStatus": "MALF",
-        "EquipmentType": "CTWR",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "HVAC",
         "TechnicalId": "CT-101",
         "PlannerGroup": "500",
@@ -356,16 +612,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1628035200000)/",
         "OrganizationId": "ORG-5000",
-        "OrganizationName": "HVAC Department"
+        "OrganizationName": "HVAC Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000017')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000017')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000017')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000018",
         "EquipmentDescription": "Filter F-102",
         "ModelNo": "EQ-F102",
         "ManufacturerSerialNo": "SN-963852741",
-        "FunctionalLocation": "PLANT-01-AREA-18-FILT-01",
+        "FunctionalLocation": "CRHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "FILT",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "F-102",
         "PlannerGroup": "400",
@@ -377,16 +649,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1616025600000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000018')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000018')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000018')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000019",
         "EquipmentDescription": "Heater H-101",
         "ModelNo": "EQ-H101",
         "ManufacturerSerialNo": "SN-147852369",
-        "FunctionalLocation": "PLANT-01-AREA-19-HATR-01",
+        "FunctionalLocation": "CTHA",
         "UserStatus": "MAINT",
-        "EquipmentType": "HATR",
+        "EquipmentType": "ZAC1001",
         "AuthorizationGroup": "MAINT",
         "TechnicalId": "H-101",
         "PlannerGroup": "100",
@@ -398,16 +686,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1629244800000)/",
         "OrganizationId": "ORG-1000",
-        "OrganizationName": "Maintenance Department"
+        "OrganizationName": "Maintenance Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000019')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000019')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000019')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000020",
         "EquipmentDescription": "Centrifuge C-102",
         "ModelNo": "EQ-C102",
         "ManufacturerSerialNo": "SN-369741852",
-        "FunctionalLocation": "PLANT-01-AREA-20-CENT-01",
+        "FunctionalLocation": "CTHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "CENT",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "C-102",
         "PlannerGroup": "400",
@@ -419,16 +723,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1616198400000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000020')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000020')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000020')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000021",
         "EquipmentDescription": "Crusher CR-101",
         "ModelNo": "EQ-CR101",
         "ManufacturerSerialNo": "SN-852147369",
-        "FunctionalLocation": "PLANT-01-AREA-21-CRUS-01",
+        "FunctionalLocation": "CHPZ-001",
         "UserStatus": "MALF",
-        "EquipmentType": "CRUS",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "MECH",
         "TechnicalId": "CR-101",
         "PlannerGroup": "300",
@@ -440,16 +760,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1630454400000)/",
         "OrganizationId": "ORG-3000",
-        "OrganizationName": "Mechanical Department"
+        "OrganizationName": "Mechanical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000021')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000021')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000021')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000022",
         "EquipmentDescription": "Screen S-102",
         "ModelNo": "EQ-S102",
         "ManufacturerSerialNo": "SN-741963852",
-        "FunctionalLocation": "PLANT-01-AREA-22-SCRN-01",
+        "FunctionalLocation": "CHPZ-002",
         "UserStatus": "AVLB",
-        "EquipmentType": "SCRN",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "S-102",
         "PlannerGroup": "400",
@@ -461,16 +797,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1616371200000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000022')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000022')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000022')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000023",
         "EquipmentDescription": "Blower B-101",
         "ModelNo": "EQ-B101",
         "ManufacturerSerialNo": "SN-258741369",
-        "FunctionalLocation": "PLANT-01-AREA-23-BLOW-01",
+        "FunctionalLocation": "CHPZ-003",
         "UserStatus": "MAINT",
-        "EquipmentType": "BLOW",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "HVAC",
         "TechnicalId": "B-101",
         "PlannerGroup": "500",
@@ -482,16 +834,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1631664000000)/",
         "OrganizationId": "ORG-5000",
-        "OrganizationName": "HVAC Department"
+        "OrganizationName": "HVAC Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000023')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000023')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000023')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000024",
         "EquipmentDescription": "Agitator AG-101",
         "ModelNo": "EQ-AG101",
         "ManufacturerSerialNo": "SN-963147258",
-        "FunctionalLocation": "PLANT-01-AREA-24-AGIT-01",
+        "FunctionalLocation": "CRHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "AGIT",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "MECH",
         "TechnicalId": "AG-101",
         "PlannerGroup": "300",
@@ -503,16 +871,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1616544000000)/",
         "OrganizationId": "ORG-3000",
-        "OrganizationName": "Mechanical Department"
+        "OrganizationName": "Mechanical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000024')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000024')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000024')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000025",
         "EquipmentDescription": "Chiller CH-101",
         "ModelNo": "EQ-CH101",
         "ManufacturerSerialNo": "SN-147258963",
-        "FunctionalLocation": "PLANT-01-AREA-25-CHIL-01",
+        "FunctionalLocation": "CTHA",
         "UserStatus": "MALF",
-        "EquipmentType": "CHIL",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "HVAC",
         "TechnicalId": "CH-101",
         "PlannerGroup": "500",
@@ -524,16 +908,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1632873600000)/",
         "OrganizationId": "ORG-5000",
-        "OrganizationName": "HVAC Department"
+        "OrganizationName": "HVAC Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000025')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000025')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000025')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000026",
         "EquipmentDescription": "Evaporator EV-101",
         "ModelNo": "EQ-EV101",
         "ManufacturerSerialNo": "SN-852369741",
-        "FunctionalLocation": "PLANT-01-AREA-26-EVAP-01",
+        "FunctionalLocation": "CTHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "EVAP",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "EV-101",
         "PlannerGroup": "400",
@@ -545,16 +945,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1616716800000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000026')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000026')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000026')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000027",
         "EquipmentDescription": "Reactor R-101",
         "ModelNo": "EQ-R101",
         "ManufacturerSerialNo": "SN-258963147",
-        "FunctionalLocation": "PLANT-01-AREA-27-REAC-01",
+        "FunctionalLocation": "CHPZ-001",
         "UserStatus": "MAINT",
-        "EquipmentType": "REAC",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "R-101",
         "PlannerGroup": "400",
@@ -566,16 +982,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1634083200000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000027')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000027')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000027')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000028",
         "EquipmentDescription": "Scrubber SC-101",
         "ModelNo": "EQ-SC101",
         "ManufacturerSerialNo": "SN-741852369",
-        "FunctionalLocation": "PLANT-01-AREA-28-SCRB-01",
+        "FunctionalLocation": "CHPZ-002",
         "UserStatus": "AVLB",
-        "EquipmentType": "SCRB",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "SC-101",
         "PlannerGroup": "400",
@@ -587,16 +1019,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1616889600000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000028')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000028')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000028')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000029",
         "EquipmentDescription": "Press P-102",
         "ModelNo": "EQ-P102",
         "ManufacturerSerialNo": "SN-369741258",
-        "FunctionalLocation": "PLANT-01-AREA-29-PRES-01",
+        "FunctionalLocation": "CHPZ-003",
         "UserStatus": "MALF",
-        "EquipmentType": "PRES",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "MECH",
         "TechnicalId": "P-102",
         "PlannerGroup": "300",
@@ -608,16 +1056,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1635292800000)/",
         "OrganizationId": "ORG-3000",
-        "OrganizationName": "Mechanical Department"
+        "OrganizationName": "Mechanical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000029')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000029')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000029')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000030",
         "EquipmentDescription": "Grinder G-101",
         "ModelNo": "EQ-G102",
         "ManufacturerSerialNo": "SN-852147963",
-        "FunctionalLocation": "PLANT-01-AREA-30-GRND-01",
+        "FunctionalLocation": "CRHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "GRND",
+        "EquipmentType": "ZAC1004",
         "AuthorizationGroup": "MECH",
         "TechnicalId": "G-101",
         "PlannerGroup": "300",
@@ -629,16 +1093,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1617062400000)/",
         "OrganizationId": "ORG-3000",
-        "OrganizationName": "Mechanical Department"
+        "OrganizationName": "Mechanical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000030')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000030')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000030')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000031",
         "EquipmentDescription": "Filtration Unit F-103",
         "ModelNo": "EQ-F103",
         "ManufacturerSerialNo": "SN-147369852",
-        "FunctionalLocation": "PLANT-01-AREA-31-FILT-02",
+        "FunctionalLocation": "CTHA",
         "UserStatus": "MAINT",
-        "EquipmentType": "FILT",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "F-103",
         "PlannerGroup": "400",
@@ -650,16 +1130,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1636502400000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000031')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000031')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000031')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000032",
         "EquipmentDescription": "Compressor C-102",
         "ModelNo": "EQ-C102",
         "ManufacturerSerialNo": "SN-963852147",
-        "FunctionalLocation": "PLANT-01-AREA-32-COMP-02",
+        "FunctionalLocation": "CTHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "COMP",
+        "EquipmentType": "ZAC1001",
         "AuthorizationGroup": "MAINT",
         "TechnicalId": "C-102",
         "PlannerGroup": "100",
@@ -671,16 +1167,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1617235200000)/",
         "OrganizationId": "ORG-1000",
-        "OrganizationName": "Maintenance Department"
+        "OrganizationName": "Maintenance Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000032')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000032')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000032')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000033",
         "EquipmentDescription": "Pump P-102",
         "ModelNo": "EQ-P102",
         "ManufacturerSerialNo": "SN-258741963",
-        "FunctionalLocation": "PLANT-01-AREA-33-PUMP-02",
+        "FunctionalLocation": "CHPZ-001",
         "UserStatus": "MALF",
-        "EquipmentType": "PUMP",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "MAINT",
         "TechnicalId": "P-102",
         "PlannerGroup": "100",
@@ -692,16 +1204,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1637712000000)/",
         "OrganizationId": "ORG-1000",
-        "OrganizationName": "Maintenance Department"
+        "OrganizationName": "Maintenance Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000033')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000033')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000033')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000034",
         "EquipmentDescription": "Motor M-102",
         "ModelNo": "EQ-M102",
         "ManufacturerSerialNo": "SN-741369258",
-        "FunctionalLocation": "PLANT-01-AREA-34-MOTR-02",
+        "FunctionalLocation": "CHPZ-002",
         "UserStatus": "AVLB",
-        "EquipmentType": "MOTR",
+        "EquipmentType": "ZAC1004",
         "AuthorizationGroup": "ELEC",
         "TechnicalId": "M-102",
         "PlannerGroup": "200",
@@ -713,16 +1241,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1617408000000)/",
         "OrganizationId": "ORG-2000",
-        "OrganizationName": "Electrical Department"
+        "OrganizationName": "Electrical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000034')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000034')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000034')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000035",
         "EquipmentDescription": "Generator G-102",
         "ModelNo": "EQ-G102",
         "ManufacturerSerialNo": "SN-852963147",
-        "FunctionalLocation": "PLANT-01-AREA-35-GENR-02",
+        "FunctionalLocation": "CHPZ-003",
         "UserStatus": "MAINT",
-        "EquipmentType": "GENR",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "ELEC",
         "TechnicalId": "G-102",
         "PlannerGroup": "200",
@@ -734,16 +1278,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1638921600000)/",
         "OrganizationId": "ORG-2000",
-        "OrganizationName": "Electrical Department"
+        "OrganizationName": "Electrical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000035')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000035')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000035')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000036",
         "EquipmentDescription": "Valve V-102",
         "ModelNo": "EQ-V102",
         "ManufacturerSerialNo": "SN-369258741",
-        "FunctionalLocation": "PLANT-01-AREA-36-VALV-02",
+        "FunctionalLocation": "CRHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "VALV",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "MECH",
         "TechnicalId": "V-102",
         "PlannerGroup": "300",
@@ -755,16 +1315,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1617580800000)/",
         "OrganizationId": "ORG-3000",
-        "OrganizationName": "Mechanical Department"
+        "OrganizationName": "Mechanical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000036')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000036')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000036')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000037",
         "EquipmentDescription": "Tank T-102",
         "ModelNo": "EQ-T102",
         "ManufacturerSerialNo": "SN-741852963",
-        "FunctionalLocation": "PLANT-01-AREA-37-TANK-02",
+        "FunctionalLocation": "CTHA",
         "UserStatus": "MALF",
-        "EquipmentType": "TANK",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "T-102",
         "PlannerGroup": "400",
@@ -776,16 +1352,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1640131200000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000037')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000037')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000037')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000038",
         "EquipmentDescription": "Heat Exchanger HE-102",
         "ModelNo": "EQ-HE102",
         "ManufacturerSerialNo": "SN-258147369",
-        "FunctionalLocation": "PLANT-01-AREA-38-HEXC-02",
+        "FunctionalLocation": "CTHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "HEXC",
+        "EquipmentType": "ZAC1004",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "HE-102",
         "PlannerGroup": "400",
@@ -797,16 +1389,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1617753600000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000038')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000038')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000038')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000039",
         "EquipmentDescription": "Dryer D-102",
         "ModelNo": "EQ-D102",
         "ManufacturerSerialNo": "SN-963741852",
-        "FunctionalLocation": "PLANT-01-AREA-39-DRYR-02",
+        "FunctionalLocation": "CHPZ-001",
         "UserStatus": "MAINT",
-        "EquipmentType": "DRYR",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "D-102",
         "PlannerGroup": "400",
@@ -818,16 +1426,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1641340800000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000039')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000039')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000039')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000040",
         "EquipmentDescription": "Air Conditioner AC-102",
         "ModelNo": "EQ-AC102",
         "ManufacturerSerialNo": "SN-147258369",
-        "FunctionalLocation": "PLANT-01-AREA-40-AIRC-02",
+        "FunctionalLocation": "CHPZ-002",
         "UserStatus": "AVLB",
-        "EquipmentType": "AIRC",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "HVAC",
         "TechnicalId": "AC-102",
         "PlannerGroup": "500",
@@ -839,16 +1463,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1617926400000)/",
         "OrganizationId": "ORG-5000",
-        "OrganizationName": "HVAC Department"
+        "OrganizationName": "HVAC Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000040')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000040')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000040')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000041",
         "EquipmentDescription": "Conveyor CV-102",
         "ModelNo": "EQ-CV102",
         "ManufacturerSerialNo": "SN-852963741",
-        "FunctionalLocation": "PLANT-01-AREA-41-CONV-02",
+        "FunctionalLocation": "CHPZ-003",
         "UserStatus": "MALF",
-        "EquipmentType": "CONV",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "MECH",
         "TechnicalId": "CV-102",
         "PlannerGroup": "300",
@@ -860,16 +1500,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1642550400000)/",
         "OrganizationId": "ORG-3000",
-        "OrganizationName": "Mechanical Department"
+        "OrganizationName": "Mechanical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000041')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000041')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000041')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000042",
         "EquipmentDescription": "Fan F-102",
         "ModelNo": "EQ-F102",
         "ManufacturerSerialNo": "SN-369147258",
-        "FunctionalLocation": "PLANT-01-AREA-42-FAN-02",
+        "FunctionalLocation": "CRHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "FAN",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "HVAC",
         "TechnicalId": "F-102",
         "PlannerGroup": "500",
@@ -881,16 +1537,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1618099200000)/",
         "OrganizationId": "ORG-5000",
-        "OrganizationName": "HVAC Department"
+        "OrganizationName": "HVAC Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000042')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000042')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000042')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000043",
         "EquipmentDescription": "Cooler CL-102",
         "ModelNo": "EQ-CL102",
         "ManufacturerSerialNo": "SN-741852963",
-        "FunctionalLocation": "PLANT-01-AREA-43-COOL-02",
+        "FunctionalLocation": "CTHA",
         "UserStatus": "MAINT",
-        "EquipmentType": "COOL",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "CL-102",
         "PlannerGroup": "400",
@@ -902,16 +1574,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1643760000000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000043')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000043')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000043')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000044",
         "EquipmentDescription": "Boiler B-102",
         "ModelNo": "EQ-B102",
         "ManufacturerSerialNo": "SN-258369147",
-        "FunctionalLocation": "PLANT-01-AREA-44-BOIL-02",
+        "FunctionalLocation": "CTHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "BOIL",
+        "EquipmentType": "ZAC1001",
         "AuthorizationGroup": "MAINT",
         "TechnicalId": "B-102",
         "PlannerGroup": "100",
@@ -923,16 +1611,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1618272000000)/",
         "OrganizationId": "ORG-1000",
-        "OrganizationName": "Maintenance Department"
+        "OrganizationName": "Maintenance Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000044')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000044')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000044')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000045",
         "EquipmentDescription": "Turbine T-102",
         "ModelNo": "EQ-TB102",
         "ManufacturerSerialNo": "SN-963741852",
-        "FunctionalLocation": "PLANT-01-AREA-45-TURB-02",
+        "FunctionalLocation": "CHPZ-001",
         "UserStatus": "MALF",
-        "EquipmentType": "TURB",
+        "EquipmentType": "ZAC1004",
         "AuthorizationGroup": "ELEC",
         "TechnicalId": "T-102",
         "PlannerGroup": "200",
@@ -944,16 +1648,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1644969600000)/",
         "OrganizationId": "ORG-2000",
-        "OrganizationName": "Electrical Department"
+        "OrganizationName": "Electrical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000045')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000045')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000045')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000046",
         "EquipmentDescription": "Separator S-102",
         "ModelNo": "EQ-S102",
         "ManufacturerSerialNo": "SN-147258369",
-        "FunctionalLocation": "PLANT-01-AREA-46-SEPR-02",
+        "FunctionalLocation": "CHPZ-002",
         "UserStatus": "AVLB",
-        "EquipmentType": "SEPR",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "S-102",
         "PlannerGroup": "400",
@@ -965,16 +1685,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1618444800000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000046')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000046')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000046')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000047",
         "EquipmentDescription": "Mixer M-103",
         "ModelNo": "EQ-M103",
         "ManufacturerSerialNo": "SN-852963741",
-        "FunctionalLocation": "PLANT-01-AREA-47-MIXR-02",
+        "FunctionalLocation": "CHPZ-003",
         "UserStatus": "MAINT",
-        "EquipmentType": "MIXR",
+        "EquipmentType": "ZAC1005",
         "AuthorizationGroup": "MECH",
         "TechnicalId": "M-103",
         "PlannerGroup": "300",
@@ -986,16 +1722,32 @@
         "ChangedBy": "MIKE",
         "ChangedOn": "/Date(1646179200000)/",
         "OrganizationId": "ORG-3000",
-        "OrganizationName": "Mechanical Department"
+        "OrganizationName": "Mechanical Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000047')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000047')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000047')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000048",
         "EquipmentDescription": "Cooling Tower CT-102",
         "ModelNo": "EQ-CT102",
         "ManufacturerSerialNo": "SN-369147258",
-        "FunctionalLocation": "PLANT-01-AREA-48-CTWR-02",
+        "FunctionalLocation": "CRHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "CTWR",
+        "EquipmentType": "ZAC1003",
         "AuthorizationGroup": "HVAC",
         "TechnicalId": "CT-102",
         "PlannerGroup": "500",
@@ -1007,16 +1759,32 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1618617600000)/",
         "OrganizationId": "ORG-5000",
-        "OrganizationName": "HVAC Department"
+        "OrganizationName": "HVAC Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000048')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000048')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000048')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000049",
         "EquipmentDescription": "Filter F-104",
         "ModelNo": "EQ-F104",
         "ManufacturerSerialNo": "SN-741852369",
-        "FunctionalLocation": "PLANT-01-AREA-49-FILT-03",
+        "FunctionalLocation": "CTHA",
         "UserStatus": "MALF",
-        "EquipmentType": "FILT",
+        "EquipmentType": "ZAC1002",
         "AuthorizationGroup": "PROC",
         "TechnicalId": "F-104",
         "PlannerGroup": "400",
@@ -1028,16 +1796,32 @@
         "ChangedBy": "JOHN",
         "ChangedOn": "/Date(1647388800000)/",
         "OrganizationId": "ORG-4000",
-        "OrganizationName": "Process Department"
+        "OrganizationName": "Process Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000049')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000049')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000049')/EquipmentTypeNav"
+          }
+        }
       },
       {
         "EquipmentNo": "10000050",
         "EquipmentDescription": "Heater H-102",
         "ModelNo": "EQ-H102",
         "ManufacturerSerialNo": "SN-258147369",
-        "FunctionalLocation": "PLANT-01-AREA-50-HATR-02",
+        "FunctionalLocation": "CTHA-001",
         "UserStatus": "AVLB",
-        "EquipmentType": "HATR",
+        "EquipmentType": "ZAC1001",
         "AuthorizationGroup": "MAINT",
         "TechnicalId": "H-102",
         "PlannerGroup": "100",
@@ -1049,7 +1833,23 @@
         "ChangedBy": "ADMIN",
         "ChangedOn": "/Date(1618790400000)/",
         "OrganizationId": "ORG-1000",
-        "OrganizationName": "Maintenance Department"
+        "OrganizationName": "Maintenance Department",
+        "__metadata": { "type": "EMSD_AMS_SRV.Equipment" },
+        "FunctionalLoc": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000050')/FunctionalLoc"
+          }
+        },
+        "Classification": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000050')/Classification"
+          }
+        },
+        "EquipmentTypeNav": {
+          "__deferred": {
+            "uri": "EquipmentSet('10000050')/EquipmentTypeNav"
+          }
+        }
       }
     ]
   }

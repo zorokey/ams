@@ -29,7 +29,7 @@
                 >
                     <!-- Annotation-based filters will be loaded automatically -->
                      <!-- Control Configuration -->
-                    <smartFilterBar:controlConfiguration>
+                    <!-- <smartFilterBar:controlConfiguration>
                         <smartFilterBar:ControlConfiguration 
                             id="equipmentNoFilterConfig"
                             key="EquipmentNo" 
@@ -100,7 +100,7 @@
                             id="changedOnFilterConfig"
                             key="ChangedOn" 
                             visibleInAdvancedArea="true"/>
-                    </smartFilterBar:controlConfiguration>
+                    </smartFilterBar:controlConfiguration> -->
                 </smartFilterBar:SmartFilterBar>
                 <smartTable:SmartTable
                     id="equipmentSmartTable"

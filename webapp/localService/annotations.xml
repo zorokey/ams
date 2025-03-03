@@ -98,7 +98,7 @@
                         <PropertyPath>Customer</PropertyPath>
                         <PropertyPath>CreatedBy</PropertyPath>
                         <PropertyPath>CreatedOn</PropertyPath>
-                        <PropertyPath>ChangedBy</PropertyPath>
+                        <PropertyPath>ChangedBy</PropertyPath>  
                         <PropertyPath>ChangedOn</PropertyPath>
                        
                     </Collection>
@@ -231,7 +231,63 @@
                         </PropertyValue>
                     </Record>
                 </Annotation>
+ 
             </Annotations>
+
+            <!-- Value List Annotations for FunctionalLocation Property -->
+            <Annotations Target="EMSD_AMS_SRV.Equipment/FunctionalLocation">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Functional Location" />
+                        <PropertyValue Property="CollectionPath" String="FunctionalLocSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="FunctionalLocation" />
+                                    <PropertyValue Property="ValueListProperty" String="FunctionalLoc" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Description" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValidFrom" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="FunctionalLoc/Description" />
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Functional Location" />
+            </Annotations>
+            
+            <!-- Value List Annotations for EquipmentType Property -->
+            <Annotations Target="EMSD_AMS_SRV.Equipment/EquipmentType">
+                <Annotation Term="com.sap.vocabularies.Common.v1.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Equipment Type" />
+                        <PropertyValue Property="CollectionPath" String="EquipmentTypeSet" />
+                        <PropertyValue Property="SearchSupported" Bool="true" />
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="EquipmentType" />
+                                    <PropertyValue Property="ValueListProperty" String="EquipmentType" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Description" />
+                                </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SuperiorEquipmentType" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="EquipmentTypeNav/Description" />
+                <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment Type" />
+            </Annotations>
+            
         </Schema>
     </edmx:DataServices>
 </edmx:Edmx>

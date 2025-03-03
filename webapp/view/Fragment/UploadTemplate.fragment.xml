@@ -21,6 +21,10 @@
                     width="100%"
                     fileType="xlsx,xls">
                 </u:FileUploader>
+                <CheckBox
+                    id="testRunCheckbox"
+                    text="Test Run?"
+                    selected="true"/>
                 <Text
                     text="{i18n>uploadTemplateHelpText}"
                     class="sapUiSmallMarginTop" />
@@ -31,7 +35,7 @@
                 id="templateUploadButton"
                 text="{i18n>uploadButtonText}"
                 type="Emphasized"
-                enabled="false"
+                enabled="true"
                 press="onUploadTemplate" />
             <Button
                 text="{i18n>cancelButtonText}"

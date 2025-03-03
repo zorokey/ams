@@ -1,0 +1,36 @@
+{
+    "d": {
+      "results": [
+        {
+          "EquipmentType": "ZAC1001",
+          "Description": "Compressor",
+          "SuperiorEquipmentType": "AC (air condition) -> AC1000 (DX unit)",
+          "__metadata": { "type": "EMSD_AMS_SRV.EquipmentType" }
+        },
+        {
+          "EquipmentType": "ZAC1002",
+          "Description": "Chiller",
+          "SuperiorEquipmentType": "AC (air condition) -> AC1001 (Cooling Unit)",
+          "__metadata": { "type": "EMSD_AMS_SRV.EquipmentType" }
+        },
+        {
+          "EquipmentType": "ZAC1003",
+          "Description": "Fan",
+          "SuperiorEquipmentType": "AC (air condition) -> AC1002 (Ventilation Unit)",
+          "__metadata": { "type": "EMSD_AMS_SRV.EquipmentType" }
+        },
+        {
+          "EquipmentType": "ZAC1004",
+          "Description": "Heat Exchanger",
+          "SuperiorEquipmentType": "AC (air condition) -> AC1003 (Heat Pump)",
+          "__metadata": { "type": "EMSD_AMS_SRV.EquipmentType" }
+        },
+        {
+          "EquipmentType": "ZAC1005",
+          "Description": "Evaporator",
+          "SuperiorEquipmentType": "AC (air condition) -> AC1004 (Cooling Coil)",
+          "__metadata": { "type": "EMSD_AMS_SRV.EquipmentType" }
+        }
+      ]
+    }
+  }

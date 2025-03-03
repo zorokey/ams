@@ -1,0 +1,19 @@
+{
+    "d": {
+      "results": [
+        {
+          "EquipmentType": "AIR-COOLED UNIT",
+          "Configuration": "PACKAGE UNIT",
+          "EquipmentDescription": "ACC-A-3F-01",
+          "EquipmentLocation": "3/F",
+          "Make": "CARRIER",
+          "Model": "30RB232C",
+          "CoolingCapacitykW": 240.20,
+          "Compressor": "SCROLL",
+          "Refrigerant": "R-410A",
+          "RatedPowerInputkW": 74.50,
+          "__metadata": { "type": "EMSD_AMS_SRV.Classification" }
+        }
+      ]
+    }
+  }

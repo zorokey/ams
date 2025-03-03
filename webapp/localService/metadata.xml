@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
-    <edmx:DataServices m:DataServiceVersion="2.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
-        <Schema Namespace="EMSD_AMS_SRV" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+<edmx:Edmx Version="1.0" 
+           xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" 
+           xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" 
+           xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="EMSD_AMS_SRV" 
+                xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <!-- Equipment EntityType -->
             <EntityType Name="Equipment">
-                <Key>
-                    <PropertyRef Name="EquipmentNo" />
-                </Key>
+                <Key><PropertyRef Name="EquipmentNo"/></Key>
                 <Property Name="EquipmentNo" Type="Edm.String" Nullable="false" MaxLength="18" />
                 <Property Name="EquipmentDescription" Type="Edm.String" MaxLength="40" />
                 <Property Name="ModelNo" Type="Edm.String" MaxLength="18" />
@@ -25,9 +28,108 @@
                 <Property Name="ChangedOn" Type="Edm.DateTime" />
                 <Property Name="OrganizationId" Type="Edm.String" MaxLength="10" />
                 <Property Name="OrganizationName" Type="Edm.String" MaxLength="40" />
+                <!-- Navigation Properties -->
+                <NavigationProperty Name="FunctionalLoc" Relationship="EMSD_AMS_SRV.Equipment_FunctionalLoc" FromRole="Equipment" ToRole="FunctionalLoc" />
+                <NavigationProperty Name="Classification" Relationship="EMSD_AMS_SRV.Equipment_Classification" FromRole="Equipment" ToRole="Classification" />
+                <NavigationProperty Name="EquipmentTypeNav" Relationship="EMSD_AMS_SRV.Equipment_EquipmentType" FromRole="Equipment" ToRole="EquipmentType" />
             </EntityType>
+
+            <!-- FunctionalLoc EntityType -->
+            <EntityType Name="FunctionalLoc">
+                <Key><PropertyRef Name="FunctionalLoc"/></Key>
+                <Property Name="FunctionalLoc" Type="Edm.String" Nullable="false" MaxLength="30" />
+                <Property Name="Description" Type="Edm.String" MaxLength="100" />
+                <Property Name="ValidFrom" Type="Edm.DateTime" />
+                <NavigationProperty Name="Children" Relationship="EMSD_AMS_SRV.FunctionalLoc_Children" FromRole="Parent" ToRole="Child" />
+            </EntityType>
+
+            <!-- Class EntityType (已修正Characteristics为集合类型) -->
+            <EntityType Name="Class">
+                <Key><PropertyRef Name="Class"/></Key>
+                <Property Name="Class" Type="Edm.String" Nullable="false" MaxLength="20" />
+                <Property Name="ClassType" Type="Edm.String" MaxLength="3" />
+                <Property Name="ClassTypeDescription" Type="Edm.String" MaxLength="40" />
+                <Property Name="ChangeNumber" Type="Edm.String" MaxLength="12" />
+                <Property Name="ValidFrom" Type="Edm.DateTime" />
+                <Property Name="Characteristics" Type="Collection(EMSD_AMS_SRV.Characteristic)" /> <!-- 修正点 -->
+            </EntityType>
+
+            <!-- Characteristic ComplexType -->
+            <ComplexType Name="Characteristic">
+                <Property Name="Name" Type="Edm.String" MaxLength="30" />
+                <Property Name="Description" Type="Edm.String" MaxLength="40" />
+                <Property Name="DataType" Type="Edm.String" MaxLength="10" />
+                <Property Name="Length" Type="Edm.Int32" />
+                <Property Name="DecimalPlaces" Type="Edm.Int32" />
+                <Property Name="TemplateValue" Type="Edm.Boolean" />
+            </ComplexType>
+
+            <!-- Classification EntityType -->
+            <EntityType Name="Classification">
+                <Key><PropertyRef Name="EquipmentType"/></Key>
+                <Property Name="EquipmentType" Type="Edm.String" Nullable="false" MaxLength="20" />
+                <Property Name="Configuration" Type="Edm.String" MaxLength="30" />
+                <Property Name="EquipmentDescription" Type="Edm.String" MaxLength="40" />
+                <Property Name="EquipmentLocation" Type="Edm.String" MaxLength="30" />
+                <Property Name="Make" Type="Edm.String" MaxLength="30" />
+                <Property Name="Model" Type="Edm.String" MaxLength="30" />
+                <Property Name="CoolingCapacitykW" Type="Edm.Decimal" Precision="6" Scale="2" />
+                <Property Name="Compressor" Type="Edm.String" MaxLength="30" />
+                <Property Name="Refrigerant" Type="Edm.String" MaxLength="30" />
+                <Property Name="RatedPowerInputkW" Type="Edm.Decimal" Precision="6" Scale="2" />
+            </EntityType>
+
+            <!-- EquipmentType EntityType -->
+            <EntityType Name="EquipmentType">
+                <Key><PropertyRef Name="EquipmentType"/></Key>
+                <Property Name="EquipmentType" Type="Edm.String" Nullable="false" MaxLength="10" />
+                <Property Name="Description" Type="Edm.String" MaxLength="40" />
+                <Property Name="SuperiorEquipmentType" Type="Edm.String" MaxLength="50" />
+            </EntityType>
+
+            <!-- Associations -->
+            <Association Name="Equipment_FunctionalLoc">
+                <End Type="EMSD_AMS_SRV.Equipment" Role="Equipment" Multiplicity="1"/>
+                <End Type="EMSD_AMS_SRV.FunctionalLoc" Role="FunctionalLoc" Multiplicity="0..1"/>
+            </Association>
+            <Association Name="Equipment_Classification">
+                <End Type="EMSD_AMS_SRV.Equipment" Role="Equipment" Multiplicity="1"/>
+                <End Type="EMSD_AMS_SRV.Classification" Role="Classification" Multiplicity="0..1"/>
+            </Association>
+            <Association Name="Equipment_EquipmentType">
+                <End Type="EMSD_AMS_SRV.Equipment" Role="Equipment" Multiplicity="1"/>
+                <End Type="EMSD_AMS_SRV.EquipmentType" Role="EquipmentType" Multiplicity="0..1"/>
+            </Association>
+            <Association Name="FunctionalLoc_Children">
+                <End Type="EMSD_AMS_SRV.FunctionalLoc" Role="Parent" Multiplicity="1"/>
+                <End Type="EMSD_AMS_SRV.FunctionalLoc" Role="Child" Multiplicity="*"/>
+            </Association>
+
+            <!-- EntityContainer -->
             <EntityContainer Name="EMSD_AMS_SRV_Entities" m:IsDefaultEntityContainer="true">
-                <EntitySet Name="EquipmentSet" EntityType="EMSD_AMS_SRV.Equipment" />
+                <EntitySet Name="EquipmentSet" EntityType="EMSD_AMS_SRV.Equipment"/>
+                <EntitySet Name="FunctionalLocSet" EntityType="EMSD_AMS_SRV.FunctionalLoc"/>
+                <EntitySet Name="ClassSet" EntityType="EMSD_AMS_SRV.Class"/>
+                <EntitySet Name="ClassificationSet" EntityType="EMSD_AMS_SRV.Classification"/>
+                <EntitySet Name="EquipmentTypeSet" EntityType="EMSD_AMS_SRV.EquipmentType"/>
+                
+                <!-- AssociationSets -->
+                <AssociationSet Name="EquipmentFunctionalLocSet" Association="EMSD_AMS_SRV.Equipment_FunctionalLoc">
+                    <End Role="Equipment" EntitySet="EquipmentSet"/>
+                    <End Role="FunctionalLoc" EntitySet="FunctionalLocSet"/>
+                </AssociationSet>
+                <AssociationSet Name="EquipmentClassificationSet" Association="EMSD_AMS_SRV.Equipment_Classification">
+                    <End Role="Equipment" EntitySet="EquipmentSet"/>
+                    <End Role="Classification" EntitySet="ClassificationSet"/>
+                </AssociationSet>
+                <AssociationSet Name="EquipmentEquipmentTypeSet" Association="EMSD_AMS_SRV.Equipment_EquipmentType">
+                    <End Role="Equipment" EntitySet="EquipmentSet"/>
+                    <End Role="EquipmentType" EntitySet="EquipmentTypeSet"/>
+                </AssociationSet>
+                <AssociationSet Name="FunctionalLocChildrenSet" Association="EMSD_AMS_SRV.FunctionalLoc_Children">
+                    <End Role="Parent" EntitySet="FunctionalLocSet"/>
+                    <End Role="Child" EntitySet="FunctionalLocSet"/>
+                </AssociationSet>
             </EntityContainer>
         </Schema>
     </edmx:DataServices>
