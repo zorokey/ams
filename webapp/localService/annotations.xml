@@ -12,22 +12,27 @@
                         <Record Type="com.sap.vocabularies.UI.v1.DataField">
                             <PropertyValue Property="Value" Path="EquipmentNo"/>
                             <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment No"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.SearchSupported" Bool="true"/>
                         </Record>
                         <Record Type="com.sap.vocabularies.UI.v1.DataField">
                             <PropertyValue Property="Value" Path="EquipmentDescription"/>
                             <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment Description"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.SearchSupported" Bool="true"/>
                         </Record>
                         <Record Type="com.sap.vocabularies.UI.v1.DataField">
                             <PropertyValue Property="Value" Path="ModelNo"/>
                             <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Model No"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.SearchSupported" Bool="true"/>
                         </Record>
                         <Record Type="com.sap.vocabularies.UI.v1.DataField">
                             <PropertyValue Property="Value" Path="ManufacturerSerialNo"/>
                             <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Manufacturer Serial No"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.SearchSupported" Bool="true"/>
                         </Record>
                         <Record Type="com.sap.vocabularies.UI.v1.DataField">
                             <PropertyValue Property="Value" Path="FunctionalLocation"/>
                             <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Functional Location"/>
+                            <Annotation Term="com.sap.vocabularies.Common.v1.SearchSupported" Bool="true"/>
                         </Record>
                         <Record Type="com.sap.vocabularies.UI.v1.DataField">
                             <PropertyValue Property="Value" Path="UserStatus"/>

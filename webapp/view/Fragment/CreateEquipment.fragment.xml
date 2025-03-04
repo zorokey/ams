@@ -43,14 +43,9 @@
                 
                 <smartForm:Group id="technicalGroup" label="{i18n>technicalInformationLabel}">
                     <smartForm:GroupElement id="technicalCategoryElement">
-                        <smartField:SmartField value="{TechnicalCategory}" />
+                        <smartField:SmartField value="{TechnicalId}" />
                     </smartForm:GroupElement>
-                    <smartForm:GroupElement id="manufactureElement">
-                        <smartField:SmartField value="{Manufacturer}" />
-                    </smartForm:GroupElement>
-                    <smartForm:GroupElement id="manufactureYearElement">
-                        <smartField:SmartField value="{ManufactureYear}" />
-                    </smartForm:GroupElement>
+                     
                 </smartForm:Group>
             </smartForm:SmartForm>
         </content>

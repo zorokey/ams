@@ -22,85 +22,9 @@
                     id="equipmentSmartFilterBar"
                     entitySet="EquipmentSet"
                     persistencyKey="EquipmentFilterBar"
-                    basicSearchFieldName="EquipmentNo,EquipmentDescription,ModelNo,ManufacturerSerialNo"
                     enableBasicSearch="true"
-                    considerSelectionVariants="true"
                     useDateRangeType="true"
-                >
-                    <!-- Annotation-based filters will be loaded automatically -->
-                     <!-- Control Configuration -->
-                    <!-- <smartFilterBar:controlConfiguration>
-                        <smartFilterBar:ControlConfiguration 
-                            id="equipmentNoFilterConfig"
-                            key="EquipmentNo" 
-                            visibleInAdvancedArea="true"
-                            preventInitialDataFetchInValueHelpDialog="false"
-                            displayBehaviour="descriptionAndId"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="equipmentDescriptionFilterConfig"
-                            key="EquipmentDescription" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="modelNoFilterConfig"
-                            key="ModelNo" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="manufacturerSerialNoFilterConfig"
-                            key="ManufacturerSerialNo" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="functionalLocationFilterConfig"
-                            key="FunctionalLocation" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="userStatusFilterConfig"
-                            key="UserStatus" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="equipmentTypeFilterConfig"
-                            key="EquipmentType" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="authorizationGroupFilterConfig"
-                            key="AuthorizationGroup" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="technicalIdFilterConfig"
-                            key="TechnicalId" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="plannerGroupFilterConfig"
-                            key="PlannerGroup" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="mainWorkCenterFilterConfig"
-                            key="MainWorkCenter" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="divisionFilterConfig"
-                            key="Division" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="customerFilterConfig"
-                            key="Customer" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="createdByFilterConfig"
-                            key="CreatedBy" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="createdOnFilterConfig"
-                            key="CreatedOn" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="changedByFilterConfig"
-                            key="ChangedBy" 
-                            visibleInAdvancedArea="true"/>
-                        <smartFilterBar:ControlConfiguration 
-                            id="changedOnFilterConfig"
-                            key="ChangedOn" 
-                            visibleInAdvancedArea="true"/>
-                    </smartFilterBar:controlConfiguration> -->
+                > 
                 </smartFilterBar:SmartFilterBar>
                 <smartTable:SmartTable
                     id="equipmentSmartTable"

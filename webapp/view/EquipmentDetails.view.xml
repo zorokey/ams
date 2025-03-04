@@ -20,11 +20,18 @@
             <l:ResponsiveSplitter id="detailPageSplitter">
                 <l:PaneContainer id="detailPaneContainer">
                     <!-- Left side - 30% width -->
-                    <l:SplitPane
-                        id="leftPane"
-                        requiredParentWidth="800"
-                        demandPane="true"
-                    >
+                     <l:SplitPane
+                            id="leftPane"
+                            requiredParentWidth="800"
+                            demandPane="true"
+                        >
+                            <l:layoutData>
+                                <l:SplitterLayoutData size="30%" />
+                            </l:layoutData>
+                            
+                       
+
+                         
                         <VBox
                             id="leftPaneContent"
                             class="sapUiSmallMargin"
@@ -35,21 +42,45 @@
                                 headerText="{i18n>functionalLocationHierarchy}"
                                 class="sapUiNoContentPadding"
                             >
-                                <Tree
-                                    id="funcLocTree"
-                                    items="{
-                                        path: 'funcLocTree>/funcLocTree',
-                                        parameters: {
-                                            arrayNames: ['nodes']
-                                        }
-                                    }"
-                                    mode="SingleSelectMaster"
-                                    selectionChange="onFuncLocNodeSelect"
-                                    includeItemInSelection="true">
-                                    <StandardTreeItem
-                                        title="{funcLocTree>text}"
-                                        description="{funcLocTree>funcLoc}" />
-                                </Tree>
+                                <VBox>
+                                    <HBox
+                                        alignItems="Center"
+                                        class="sapUiTinyMargin"
+                                    >
+                                        <Label
+                                            text="{i18n>currentEquipmentLocation}"
+                                            class="sapUiTinyMarginEnd"
+                                        />
+                                        <Text
+                                            text="{FunctionalLocation}"
+                                            class="sapUiTinyMarginEnd"
+                                        />
+                                        <Button
+                                            icon="sap-icon://expand"
+                                            tooltip="{i18n>expandToCurrentLocation}"
+                                            press="onExpandToCurrentLocation"
+                                            class="sapUiTinyMarginEnd"
+                                        />
+                                    </HBox>
+                                    <Tree
+                                        id="funcLocTree"
+                                        items="{
+                path: 'funcLocTree>/funcLocTree',
+                parameters: {
+                    arrayNames: ['nodes']
+                }
+            }"
+                                        mode="SingleSelectMaster"
+                                        selectionChange="onFuncLocNodeSelect"
+                                        includeItemInSelection="true"
+                                    >
+                                        <StandardTreeItem
+                                            title="{funcLocTree>text}"
+                                            tooltip="{funcLocTree>funcLoc}"
+                                            highlight="{= ${funcLocTree>funcLoc} === ${FunctionalLocation} ? 'Success' : 'None' }"
+                                        />
+                                    </Tree>
+                                </VBox>
                             </Panel>
                         </VBox>
                     </l:SplitPane>
@@ -60,9 +91,17 @@
                         requiredParentWidth="800"
                         demandPane="true"
                     >
+                        <l:layoutData>
+                            <l:SplitterLayoutData size="70%" />
+                        </l:layoutData>
+                         
+                  
                         <VBox id="rightPaneContent">
                             <!-- Edit button in top right -->
-                            <HBox justifyContent="End" class="sapUiSmallMargin">
+                            <HBox
+                                justifyContent="End"
+                                class="sapUiSmallMargin"
+                            >
                                 <Button
                                     id="editEquipmentButton"
                                     text="{i18n>editButtonText}"
@@ -71,7 +110,7 @@
                                     visible="{= !${/editMode}}"
                                 />
                             </HBox>
-                            
+
                             <!-- Upper section - Basic information using SmartForm -->
                             <smartForm:SmartForm
                                 id="basicInfoSmartForm"
@@ -80,18 +119,42 @@
                                 title="{i18n>basicInformation}"
                                 useHorizontalLayout="true"
                             >
-                                <smartForm:Group id="basicInfoGroup" label="{i18n>basicInformation}">
-                                    <smartForm:GroupElement id="equipmentNoElement">
-                                        <smartField:SmartField id="equipmentNoSmartField" value="{EquipmentNo}" editable="false" />
+                                <smartForm:Group
+                                    id="basicInfoGroup"
+                                    label="{i18n>basicInformation}"
+                                >
+                                    <smartForm:GroupElement
+                                        id="equipmentNoElement"
+                                    >
+                                        <smartField:SmartField
+                                            id="equipmentNoSmartField"
+                                            value="{EquipmentNo}"
+                                            editable="false"
+                                        />
                                     </smartForm:GroupElement>
-                                    <smartForm:GroupElement id="equipmentDescriptionElement">
-                                        <smartField:SmartField id="equipmentDescriptionSmartField" value="{EquipmentDescription}" />
+                                    <smartForm:GroupElement
+                                        id="equipmentDescriptionElement"
+                                    >
+                                        <smartField:SmartField
+                                            id="equipmentDescriptionSmartField"
+                                            value="{EquipmentDescription}"
+                                        />
                                     </smartForm:GroupElement>
-                                    <smartForm:GroupElement id="idmodelNoElement">
-                                        <smartField:SmartField id="modelNoSmartField" value="{ModelNo}" />
+                                    <smartForm:GroupElement
+                                        id="idmodelNoElement"
+                                    >
+                                        <smartField:SmartField
+                                            id="modelNoSmartField"
+                                            value="{ModelNo}"
+                                        />
                                     </smartForm:GroupElement>
-                                    <smartForm:GroupElement id="manufacturerSerialNoElement">
-                                        <smartField:SmartField id="manufacturerSerialNoSmartField" value="{ManufacturerSerialNo}" />
+                                    <smartForm:GroupElement
+                                        id="manufacturerSerialNoElement"
+                                    >
+                                        <smartField:SmartField
+                                            id="manufacturerSerialNoSmartField"
+                                            value="{ManufacturerSerialNo}"
+                                        />
                                     </smartForm:GroupElement>
                                 </smartForm:Group>
                             </smartForm:SmartForm>
@@ -115,33 +178,79 @@
                                             entityType="Equipment"
                                             editTogglable="{/editMode}"
                                         >
-                                            <smartForm:Group id="generalInfoGroup" label="{i18n>generalInformation}">
-                                                <smartForm:GroupElement id="idfunctionalLocationElement">
-                                                    <smartField:SmartField id="functionalLocationSmartField" value="{FunctionalLocation}" />
+                                            <smartForm:Group
+                                                id="generalInfoGroup"
+                                                label="{i18n>generalInformation}"
+                                            >
+                                                <smartForm:GroupElement
+                                                    id="idfunctionalLocationElement"
+                                                >
+                                                    <smartField:SmartField
+                                                        id="functionalLocationSmartField"
+                                                        value="{FunctionalLocation}"
+                                                    />
                                                 </smartForm:GroupElement>
-                                                <smartForm:GroupElement id="iduserStatusElement">
-                                                    <smartField:SmartField id="userStatusSmartField" value="{UserStatus}" />
+                                                <smartForm:GroupElement
+                                                    id="iduserStatusElement"
+                                                >
+                                                    <smartField:SmartField
+                                                        id="userStatusSmartField"
+                                                        value="{UserStatus}"
+                                                    />
                                                 </smartForm:GroupElement>
-                                                <smartForm:GroupElement id="equipmentTypeElement">
-                                                    <smartField:SmartField id="equipmentTypeSmartField" value="{EquipmentType}" />
+                                                <smartForm:GroupElement
+                                                    id="equipmentTypeElement"
+                                                >
+                                                    <smartField:SmartField
+                                                        id="equipmentTypeSmartField"
+                                                        value="{EquipmentType}"
+                                                    />
                                                 </smartForm:GroupElement>
-                                                <smartForm:GroupElement id="authorizationGroupElement">
-                                                    <smartField:SmartField id="authorizationGroupSmartField" value="{AuthorizationGroup}" />
+                                                <smartForm:GroupElement
+                                                    id="authorizationGroupElement"
+                                                >
+                                                    <smartField:SmartField
+                                                        id="authorizationGroupSmartField"
+                                                        value="{AuthorizationGroup}"
+                                                    />
                                                 </smartForm:GroupElement>
                                             </smartForm:Group>
-                                            
-                                            <smartForm:Group id="technicalInfoGroup" label="{i18n>technicalInformation}">
-                                                <smartForm:GroupElement id="technicalIdElement">
-                                                    <smartField:SmartField id="technicalIdSmartField" value="{TechnicalId}" />
+
+                                            <smartForm:Group
+                                                id="technicalInfoGroup"
+                                                label="{i18n>technicalInformation}"
+                                            >
+                                                <smartForm:GroupElement
+                                                    id="technicalIdElement"
+                                                >
+                                                    <smartField:SmartField
+                                                        id="technicalIdSmartField"
+                                                        value="{TechnicalId}"
+                                                    />
                                                 </smartForm:GroupElement>
-                                                <smartForm:GroupElement id="plannerGroupElement">
-                                                    <smartField:SmartField id="plannerGroupSmartField" value="{PlannerGroup}" />
+                                                <smartForm:GroupElement
+                                                    id="plannerGroupElement"
+                                                >
+                                                    <smartField:SmartField
+                                                        id="plannerGroupSmartField"
+                                                        value="{PlannerGroup}"
+                                                    />
                                                 </smartForm:GroupElement>
-                                                <smartForm:GroupElement id="mainWorkCenterElement">
-                                                    <smartField:SmartField id="mainWorkCenterSmartField" value="{MainWorkCenter}" />
+                                                <smartForm:GroupElement
+                                                    id="mainWorkCenterElement"
+                                                >
+                                                    <smartField:SmartField
+                                                        id="mainWorkCenterSmartField"
+                                                        value="{MainWorkCenter}"
+                                                    />
                                                 </smartForm:GroupElement>
-                                                <smartForm:GroupElement id="divisionElement">
-                                                    <smartField:SmartField id="divisionSmartField" value="{Division}" />
+                                                <smartForm:GroupElement
+                                                    id="divisionElement"
+                                                >
+                                                    <smartField:SmartField
+                                                        id="divisionSmartField"
+                                                        value="{Division}"
+                                                    />
                                                 </smartForm:GroupElement>
                                             </smartForm:Group>
                                         </smartForm:SmartForm>
@@ -158,12 +267,25 @@
                                             entityType="Equipment"
                                             editTogglable="{/editMode}"
                                         >
-                                            <smartForm:Group id="organizationInfoGroup" label="{i18n>organizationInformation}">
-                                                <smartForm:GroupElement id="organizationIdElement">
-                                                    <smartField:SmartField id="organizationIdSmartField" value="{OrganizationId}" />
+                                            <smartForm:Group
+                                                id="organizationInfoGroup"
+                                                label="{i18n>organizationInformation}"
+                                            >
+                                                <smartForm:GroupElement
+                                                    id="organizationIdElement"
+                                                >
+                                                    <smartField:SmartField
+                                                        id="organizationIdSmartField"
+                                                        value="{OrganizationId}"
+                                                    />
                                                 </smartForm:GroupElement>
-                                                <smartForm:GroupElement id="organizationNameElement">
-                                                    <smartField:SmartField id="organizationNameSmartField" value="{OrganizationName}" />
+                                                <smartForm:GroupElement
+                                                    id="organizationNameElement"
+                                                >
+                                                    <smartField:SmartField
+                                                        id="organizationNameSmartField"
+                                                        value="{OrganizationName}"
+                                                    />
                                                 </smartForm:GroupElement>
                                             </smartForm:Group>
                                         </smartForm:SmartForm>
