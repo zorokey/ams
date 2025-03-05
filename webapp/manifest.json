@@ -57,7 +57,17 @@
                 "sap.m": {},
                 "sap.ui.layout": {},
                 "sap.ui.comp": {},
-                "sap.f": {}
+                "sap.f": {},
+                "xlsx": {
+                    "lazy": true,
+                    "path": "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5",
+                    "file": "xlsx.full.min.js"
+                },
+                "filesaver": {
+                    "lazy": true,
+                    "path": "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5",
+                    "file": "FileSaver.min.js"
+                }
             }
         },
         "contentDensities": {
@@ -89,7 +99,7 @@
                 {
                     "uri": "css/style.css"
                 }
-            ]        
+            ]
         },
         "routing": {
             "config": {

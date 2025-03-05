@@ -5,9 +5,14 @@ sap.ui.define([
     "sap/m/MessageToast",
     "sap/m/MessageBox",
     "sap/ui/core/Fragment",
-    "sap/ui/core/syncStyleClass"
+    "sap/ui/core/syncStyleClass",
+    "sap/m/MultiInput",
+    "sap/m/Dialog",
+    "sap/m/Button",
+    "sap/m/Label",
+    "sap/m/Input"
 ], function (Controller, UIComponent, JSONModel, MessageToast, MessageBox,
-    Fragment, syncStyleClass) {
+    Fragment, syncStyleClass, MultiInput, Dialog, Button, Label, Input) {
     "use strict";
 
     return Controller.extend("emsd.ams.controller.EquipmentList", {
@@ -368,24 +373,145 @@ sap.ui.define([
         /**
          * Generate blank template for equipment creation
          */
+        // onGenerateBlank: function () {
+        //     // Generate blank Excel template for equipment creation
+        //     MessageToast.show("Generating blank template...");
+
+        //     // Example implementation - replace with actual template generation logic
+        //     var sServiceUrl = this.getOwnerComponent().getModel().sServiceUrl;
+        //     var sDownloadUrl = sServiceUrl + "/GenerateBlankTemplateSet";
+
+        //     // Create hidden iframe for download
+        //     var oFrame = document.createElement("iframe");
+        //     oFrame.style.display = "none";
+        //     oFrame.src = sDownloadUrl;
+        //     document.body.appendChild(oFrame);
+
+        //     // Remove iframe after download starts
+        //     setTimeout(function () {
+        //         document.body.removeChild(oFrame);
+        //     }, 1000);
+        // },
+
+
         onGenerateBlank: function () {
-            // Generate blank Excel template for equipment creation
-            MessageToast.show("Generating blank template...");
+            var that = this;
 
-            // Example implementation - replace with actual template generation logic
-            var sServiceUrl = this.getOwnerComponent().getModel().sServiceUrl;
-            var sDownloadUrl = sServiceUrl + "/GenerateBlankTemplateSet";
+            if (!this._oGenerateDialog) {
+                // 创建输入控件但不立即添加ID
+                var oEquipmentTypeInput = new Input({
+                    placeholder: "{i18n>enterEquipmentTypePlaceholder}",
+                    liveChange: function (oEvent) {
+                        var sEquipmentType = oEvent.getParameter("value");
+                        var oClassInput = that._oClassMultiInput;
+                        if (sEquipmentType && oClassInput) {
+                            var aTokens = oClassInput.getTokens().map(function (oToken) {
+                                return oToken.getText();
+                            });
+                            if (!aTokens.some(function (token) {
+                                return token === sEquipmentType + "_Class";
+                            })) {
+                                oClassInput.addToken(new sap.m.Token({
+                                    text: sEquipmentType + "_Class"
+                                }));
+                            }
+                        }
+                    }
+                });
 
-            // Create hidden iframe for download
-            var oFrame = document.createElement("iframe");
-            oFrame.style.display = "none";
-            oFrame.src = sDownloadUrl;
-            document.body.appendChild(oFrame);
+                var oClassMultiInput = new MultiInput({
+                    placeholder: "{i18n>enterClassPlaceholder}",
+                    tokenUpdate: function (oEvent) {
+                        var sEquipmentType = that._oEquipmentTypeInput.getValue();
+                        if (sEquipmentType && oEvent.getParameter("type") === "added") {
+                            var aTokens = oEvent.getParameter("addedTokens");
+                            aTokens.forEach(function (oToken) {
+                                if (!oToken.getText().endsWith("_" + sEquipmentType)) {
+                                    oToken.setText(oToken.getText() + "_" + sEquipmentType);
+                                }
+                            });
+                        }
+                    }
+                });
 
-            // Remove iframe after download starts
-            setTimeout(function () {
-                document.body.removeChild(oFrame);
-            }, 1000);
+                // 保存对控件的引用
+                this._oEquipmentTypeInput = oEquipmentTypeInput;
+                this._oClassMultiInput = oClassMultiInput;
+
+                this._oGenerateDialog = new Dialog({
+                    title: "{i18n>generateBlankDialogTitle}",
+                    content: [
+                        new Label({
+                            text: "{i18n>equipmentTypeLabel}",
+                            labelFor: oEquipmentTypeInput
+                        }),
+                        oEquipmentTypeInput,
+                        new Label({
+                            text: "{i18n>classLabel}",
+                            labelFor: oClassMultiInput
+                        }),
+                        oClassMultiInput
+                    ],
+                    beginButton: new Button({
+                        text: "{i18n>okButtonText}",
+                        press: function () {
+                            var sEquipmentType = that._oEquipmentTypeInput.getValue();
+                            var aClasses = that._oClassMultiInput.getTokens().map(function (oToken) {
+                                return oToken.getText();
+                            });
+                            if (!sEquipmentType) {
+                                MessageBox.error(that.getResourceBundle().getText("enterEquipmentTypeMessage"));
+                                return;
+                            }
+                            that._generateBlankExcel(sEquipmentType, aClasses);
+                            that._oGenerateDialog.close();
+                        }
+                    }),
+                    endButton: new Button({
+                        text: "{i18n>cancelButtonText}",
+                        press: function () {
+                            that._oGenerateDialog.close();
+                        }
+                    }),
+                    afterClose: function () {
+                        that._oGenerateDialog.destroy();
+                        that._oEquipmentTypeInput = null;
+                        that._oClassMultiInput = null;
+                        that._oGenerateDialog = null;
+                    }
+                });
+            }
+            that.getView().addDependent(that._oCostCenterDialog);
+            // 添加这一行
+            this._oGenerateDialog.setModel(this.getOwnerComponent().getModel("i18n"), "i18n");
+
+            this._oGenerateDialog.open();
+        },
+
+        _generateBlankExcel: function (sEquipmentType, aClasses) {
+            var wb = XLSX.utils.book_new();
+            var wsData = [];
+            wsData.push(["EquipmentType", "Class", "EquipmentNo", "EquipmentDescription", "ModelNo", "ManufacturerSerialNo", "FunctionalLocation", "UserStatus", "CostCenter"]);
+            aClasses.forEach(function (sClass) {
+                wsData.push([sEquipmentType, sClass, "", "", "", "", "", "", ""]);
+            });
+            var ws = XLSX.utils.aoa_to_sheet(wsData);
+            XLSX.utils.book_append_sheet(wb, ws, "BlankTemplate");
+            var wbout = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
+
+            function s2ab(s) {
+                var buf = new ArrayBuffer(s.length);
+                var view = new Uint8Array(buf);
+                for (var i = 0; i < s.length; i++) view[i] = s.charCodeAt(i) & 0xFF;
+                return buf;
+            }
+
+            saveAs(new Blob([s2ab(wbout)], { type: "application/octet-stream" }), "BlankTemplate_" + sEquipmentType + ".xlsx");
+            MessageBox.success(this.getResourceBundle().getText("generateSuccessMessage"));
+        },
+
+        getResourceBundle: function () {
+            return this.getOwnerComponent().getModel("i18n").getResourceBundle();
         },
 
         /**
@@ -520,6 +646,101 @@ sap.ui.define([
 
         // ------------------- Mass Update Methods -------------------
 
+        onOpenMultiEdit: function (oEvent) {
+            var oTable = this.byId("equipmentSmartTable");
+            var aSelectedIndices = oTable.getSelectedIndices();
+
+            if (!oTable || aSelectedIndices.length === 0) {
+                MessageToast.show(this.getResourceBundle().getText("selectAtLeastOneItem"));
+                return;
+            }
+
+            var aSelectedContexts = [];
+            var oBinding = oTable.getBinding("items");
+
+            if (oTable.isA("sap.ui.table.Table")) {
+                var aSelectedIndices = oTable.getSelectedIndices();
+                if (aSelectedIndices.length === 0) {
+                    MessageToast.show(this.getResourceBundle().getText("selectAtLeastOneItem"));
+                    return;
+                }
+                aSelectedContexts = aSelectedIndices.map(function (iIndex) {
+                    return oBinding.getContexts()[iIndex];
+                });
+            } else if (oTable.isA("sap.m.Table")) {
+                var aSelectedItems = oTable.getSelectedItems();
+                if (aSelectedItems.length === 0) {
+                    MessageToast.show(this.getResourceBundle().getText("selectAtLeastOneItem"));
+                    return;
+                }
+                aSelectedContexts = aSelectedItems.map(function (oItem) {
+                    return oItem.getBindingContext();
+                });
+            } else {
+                MessageToast.show(this.getResourceBundle().getText("unsupportedTableType"));
+                return;
+            }
+
+            if (!this._oMultiEditDialog) {
+                Fragment.load({
+                    name: "emsd.ams.Fragment.EditFragment",
+                    controller: this
+                }).then(function (oDialog) {
+                    this._oMultiEditDialog = oDialog;
+                    this.getView().addDependent(this._oMultiEditDialog);
+
+                    // 设置模型
+                    this._oMultiEditDialog.setModel(this.getView().getModel());
+                    this._oMultiEditDialog.setModel(this.getView().getModel("i18n"), "i18n");
+
+                    // 绑定第一个选中的元素作为参考
+                    this._oMultiEditDialog.bindElement({
+                        path: aContexts[0].getPath()
+                    });
+
+                    // 保存选中的上下文
+                    this._aSelectedContexts = aContexts;
+
+                    this._oMultiEditDialog.open();
+                }.bind(this)).catch(function (oError) {
+                    MessageToast.show(this.getResourceBundle().getText("errorLoadingFragment"));
+                }.bind(this));
+            } else {
+                // 如果对话框已存在，更新绑定
+                this._oMultiEditDialog.bindElement({
+                    path: aContexts[0].getPath()
+                });
+                this._aSelectedContexts = aContexts;
+                this._oMultiEditDialog.open();
+            }
+        },
+
+        onSaveMultiEdit: function () {
+            var oModel = this.getView().getModel();
+            var oForm = this.byId("multiEditForm");
+            var mChangedData = oForm.getModel().getProperty(oForm.getBindingContext().getPath());
+
+            // 对所有选中的记录应用更改
+            Promise.all(this._aSelectedContexts.map(function (oContext) {
+                return new Promise(function (resolve, reject) {
+                    oModel.update(oContext.getPath(), mChangedData, {
+                        success: resolve,
+                        error: reject
+                    });
+                });
+            })).then(function () {
+                MessageToast.show(this.getResourceBundle().getText("updateSuccess"));
+                this._oMultiEditDialog.close();
+            }.bind(this)).catch(function (oError) {
+                MessageToast.show(this.getResourceBundle().getText("updateError"));
+            }.bind(this));
+        },
+
+        onCancelMultiEdit: function () {
+            this._oMultiEditDialog.close();
+        },
+
+
         /**
          * Update cost center for selected equipment
          */
@@ -541,6 +762,7 @@ sap.ui.define([
                 }).then(function (oDialog) {
                     that._oCostCenterDialog = oDialog;
                     that.getView().addDependent(that._oCostCenterDialog);
+                    that._oCostCenterDialog.setModel(that.getOwnerComponent().getModel("i18n"), "i18n");
                     syncStyleClass("sapUiSizeCompact", that.getView(), that._oCostCenterDialog);
 
                     // Set count of selected equipment

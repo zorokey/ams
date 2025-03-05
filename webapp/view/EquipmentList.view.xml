@@ -106,6 +106,9 @@
                                 type="Emphasized"
                                 press="onCreateEquipment"
                             />
+                            <Button type="Transparent" id="btnMultiEdit" text="Edit Multiple" 
+                            enabled="{= ${equipmentSmartTable>/selectedContexts}.length > 0 }"
+                            press="onOpenMultiEdit"/>
                         </OverflowToolbar>
                     </smartTable:customToolbar>
                 </smartTable:SmartTable>
