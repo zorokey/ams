@@ -58,6 +58,7 @@
                 "sap.ui.layout": {},
                 "sap.ui.comp": {},
                 "sap.f": {},
+                "sap.ui.table": {},
                 "xlsx": {
                     "lazy": true,
                     "path": "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5",
@@ -98,6 +99,11 @@
             "css": [
                 {
                     "uri": "css/style.css"
+                }
+            ],
+            "js": [
+                {
+                    "uri": "libs/xlsx.full.min.js"
                 }
             ]
         },

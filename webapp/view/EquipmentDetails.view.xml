@@ -20,69 +20,37 @@
             <l:ResponsiveSplitter id="detailPageSplitter">
                 <l:PaneContainer id="detailPaneContainer">
                     <!-- Left side - 30% width -->
-                     <l:SplitPane
-                            id="leftPane"
-                            requiredParentWidth="800"
-                            demandPane="true"
-                        >
-                            <l:layoutData>
-                                <l:SplitterLayoutData size="30%" />
-                            </l:layoutData>
-                            
-                       
+                    <l:SplitPane
+                        id="leftPane"
+                        requiredParentWidth="800"
+                        demandPane="true"
+                    >
+                        <l:layoutData>
+                            <l:SplitterLayoutData size="30%" />
+                        </l:layoutData>
 
-                         
-                        <VBox
-                            id="leftPaneContent"
-                            class="sapUiSmallMargin"
-                        >
-                            <!-- 功能位置树状结构 -->
-                            <Panel
-                                id="funcLocTreePanel"
-                                headerText="{i18n>functionalLocationHierarchy}"
-                                class="sapUiNoContentPadding"
-                            >
-                                <VBox>
-                                    <HBox
-                                        alignItems="Center"
-                                        class="sapUiTinyMargin"
-                                    >
-                                        <Label
-                                            text="{i18n>currentEquipmentLocation}"
-                                            class="sapUiTinyMarginEnd"
-                                        />
-                                        <Text
-                                            text="{FunctionalLocation}"
-                                            class="sapUiTinyMarginEnd"
-                                        />
-                                        <Button
-                                            icon="sap-icon://expand"
-                                            tooltip="{i18n>expandToCurrentLocation}"
-                                            press="onExpandToCurrentLocation"
-                                            class="sapUiTinyMarginEnd"
-                                        />
-                                    </HBox>
-                                    <Tree
-                                        id="funcLocTree"
-                                        items="{
+                        <Panel 
+        id="funcLocTreePanel"
+        headerText="{i18n>functionalLocationHierarchy}"
+        class="sapUiNoContentPadding"
+    >
+        <Tree
+            id="funcLocTree"
+            items="{
                 path: 'funcLocTree>/funcLocTree',
                 parameters: {
                     arrayNames: ['nodes']
                 }
             }"
-                                        mode="SingleSelectMaster"
-                                        selectionChange="onFuncLocNodeSelect"
-                                        includeItemInSelection="true"
-                                    >
-                                        <StandardTreeItem
-                                            title="{funcLocTree>text}"
-                                            tooltip="{funcLocTree>funcLoc}"
-                                            highlight="{= ${funcLocTree>funcLoc} === ${FunctionalLocation} ? 'Success' : 'None' }"
-                                        />
-                                    </Tree>
-                                </VBox>
-                            </Panel>
-                        </VBox>
+            mode="SingleSelectMaster"
+            selectionChange="onFuncLocNodeSelect"
+        >
+            <StandardTreeItem
+                title="{funcLocTree>text}"
+                tooltip="{funcLocTree>funcLoc}"
+            />
+        </Tree>
+    </Panel>
                     </l:SplitPane>
 
                     <!-- Right side - 70% width -->
@@ -94,8 +62,7 @@
                         <l:layoutData>
                             <l:SplitterLayoutData size="70%" />
                         </l:layoutData>
-                         
-                  
+
                         <VBox id="rightPaneContent">
                             <!-- Edit button in top right -->
                             <HBox

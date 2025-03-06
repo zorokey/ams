@@ -5,8 +5,9 @@ sap.ui.define([
     "sap/m/MessageToast",
     "sap/ui/model/json/JSONModel",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], function (Controller, UIComponent, History, MessageToast, JSONModel, Filter, FilterOperator) {
+    "sap/ui/model/FilterOperator",
+    "sap/ui/table/TreeTable"
+], function (Controller, UIComponent, History, MessageToast, JSONModel, Filter, FilterOperator,TreeTable) {
     "use strict";
 
     return Controller.extend("emsd.ams.controller.EquipmentDetails", {
@@ -140,218 +141,176 @@ sap.ui.define([
          * Load Functional Location hierarchy
          * @param {string} sFuncLoc - Current Functional Location ID
          */
+        
         _loadFunctionalLocationHierarchy: function(sFuncLoc) {
             var that = this;
             var oModel = this.getOwnerComponent().getModel();
             
-            // 修复：使用OData读取功能位置数据
-            if (oModel) {
-                // 添加适当的筛选器以获取所有相关的功能位置
-                var aFilters = [
-                    new Filter("FunctionalLoc", FilterOperator.StartsWith, sFuncLoc.substr(0, 4))
-                ];
-                
-                oModel.read("/FunctionalLocSet", {
-                    filters: aFilters,
-                    success: function(oData) {
-                        if (oData && oData.results) {
-                            console.log("Successfully retrieved Functional Locations data:", oData.results);
-                            
-                            // Build tree structure
-                            var aHierarchy = that._buildFuncLocHierarchy(oData.results, sFuncLoc);
-                            
-                            // Set the hierarchy to the tree model
-                            var oTreeModel = that.getView().getModel("funcLocTree");
-                            oTreeModel.setProperty("/funcLocTree", aHierarchy);
-                            
-                            // Expand and select the current functional location
-                            setTimeout(function() {
-                                var oTree = that.byId("funcLocTree");
-                                if (oTree) {
-                                    that._expandPathTo(oTree, oTree.getItems(), sFuncLoc);
+            // First fetch the target location and all ancestors
+            function fetchLocationWithAncestors(funcLoc) {
+                return new Promise((resolve, reject) => {
+                    var ancestorChain = [];
+                    
+                    function fetchLocation(currentFuncLoc) {
+                        if (!currentFuncLoc) {
+                            // Reverse the array to get root->leaf order
+                            resolve(ancestorChain.reverse());
+                            return;
+                        }
+                        
+                        oModel.read("/FunctionalLocSet('" + currentFuncLoc + "')", {
+                            success: function(oData) {
+                                if (oData) {
+                                    // Add this location to our chain
+                                    ancestorChain.push({
+                                        id: oData.FunctionalLoc,
+                                        text: oData.Description,
+                                        funcLoc: oData.FunctionalLoc,
+                                        parent: oData.Parent
+                                    });
+                                    
+                                    // Continue to parent if exists
+                                    if (oData.Parent) {
+                                        fetchLocation(oData.Parent);
+                                    } else {
+                                        // Reached the root, return the chain in root->leaf order
+                                        resolve(ancestorChain.reverse());
+                                    }
+                                } else {
+                                    resolve(ancestorChain.reverse());
                                 }
-                            }, 500);
-                        }
-                    },
-                    error: function(oError) {
-                        console.error("Failed to load functional location data:", oError);
-                    }
-                });
-            } else {
-                // 回退到演示数据
-                var oData = {
-                    "results": [
-                        {
-                            "FunctionalLoc": "LDMS",
-                            "Description": "LANDMARK SOUTH",
-                            "ValidFrom": "/Date(1740873600000)/",
-                            "Parent": null
-                        },
-                        {
-                            "FunctionalLoc": "LDMS-001",
-                            "Description": "LANDMARK SOUTH, SPORTS AND TOURISM BUREAU (CSTB)",
-                            "ValidFrom": "/Date(1740873600000)/",
-                            "Parent": {
-                                "FunctionalLoc": "LDMS"
+                            },
+                            error: function(oError) {
+                                console.error("Error fetching functional location:", currentFuncLoc, oError);
+                                resolve(ancestorChain.reverse());
                             }
-                        }
-                    ]
+                        });
+                    }
+                    
+                    // Start fetching from the current location
+                    fetchLocation(funcLoc);
+                });
+            }
+            
+            // Build a tree structure from the ancestor chain
+            function buildTreeFromAncestors(ancestors) {
+                if (!ancestors || ancestors.length === 0) {
+                    return null;
+                }
+                
+                // Start with the root node
+                var rootNode = {
+                    id: ancestors[0].id,
+                    text: ancestors[0].text,
+                    funcLoc: ancestors[0].funcLoc,
+                    nodes: []
                 };
                 
-                // Process the functional locations
-                var aFuncLocs = oData.results;
-                console.log("Using demo data for Functional Locations:", aFuncLocs);
+                var currentNode = rootNode;
                 
-                // Build tree structure
-                var aHierarchy = this._buildFuncLocHierarchy(aFuncLocs, sFuncLoc);
+                // Build the path through the ancestors
+                for (var i = 1; i < ancestors.length; i++) {
+                    var newNode = {
+                        id: ancestors[i].id,
+                        text: ancestors[i].text,
+                        funcLoc: ancestors[i].funcLoc,
+                        nodes: []
+                    };
+                    
+                    currentNode.nodes.push(newNode);
+                    currentNode = newNode;
+                }
                 
-                // Set the hierarchy to the tree model
-                var oTreeModel = this.getView().getModel("funcLocTree");
-                oTreeModel.setProperty("/funcLocTree", aHierarchy);
-                
-                // Expand and select the current functional location
-                setTimeout(function() {
+                return rootNode;
+            }
+            
+            // Now fetch children recursively starting from the leaf node
+            function fetchChildren(parentNode) {
+                return new Promise((resolve, reject) => {
+                    oModel.read("/FunctionalLocSet", {
+                        filters: [new sap.ui.model.Filter("Parent", sap.ui.model.FilterOperator.EQ, parentNode.funcLoc)],
+                        success: function(oData) {
+                            if (oData && oData.results && oData.results.length > 0) {
+                                var childPromises = [];
+                                
+                                for (var i = 0; i < oData.results.length; i++) {
+                                    var childData = oData.results[i];
+                                    var childNode = {
+                                        id: childData.FunctionalLoc,
+                                        text: childData.Description,
+                                        funcLoc: childData.FunctionalLoc,
+                                        nodes: []
+                                    };
+                                    
+                                    // Add child to parent's nodes
+                                    parentNode.nodes.push(childNode);
+                                    
+                                    // Recursively fetch this child's children
+                                    childPromises.push(fetchChildren(childNode));
+                                }
+                                
+                                // Wait for all children to complete
+                                Promise.all(childPromises).then(() => {
+                                    resolve(parentNode);
+                                }).catch(error => {
+                                    console.error("Error fetching children:", error);
+                                    resolve(parentNode);
+                                });
+                            } else {
+                                // No children, resolve with current node
+                                resolve(parentNode);
+                            }
+                        },
+                        error: function(oError) {
+                            console.error("Error fetching children for:", parentNode.funcLoc, oError);
+                            resolve(parentNode);
+                        }
+                    });
+                });
+            }
+            
+            // Main execution flow
+            fetchLocationWithAncestors(sFuncLoc)
+                .then(function(ancestors) {
+                    // Build the initial tree with the ancestor path
+                    var rootNode = buildTreeFromAncestors(ancestors);
+                    if (!rootNode) {
+                        throw new Error("Could not find any functional locations");
+                    }
+                    
+                    // Find the leaf node (target location) to start fetching its children
+                    var leafNode = rootNode;
+                    while (leafNode.nodes && leafNode.nodes.length > 0) {
+                        leafNode = leafNode.nodes[0];
+                    }
+                    
+                    // Fetch all children recursively starting from the leaf
+                    return fetchChildren(leafNode).then(() => rootNode);
+                })
+                .then(function(completeHierarchy) {
+                    // Create or get the existing model
+                    var oTreeModel = that.getView().getModel("funcLocTree") || new sap.ui.model.json.JSONModel();
+                    
+                    if (!that.getView().getModel("funcLocTree")) {
+                        that.getView().setModel(oTreeModel, "funcLocTree");
+                    }
+                    
+                    // Set the complete hierarchy to the model
+                    oTreeModel.setProperty("/funcLocTree", completeHierarchy ? [completeHierarchy] : []);
+                    
+                    // Auto-expand all levels
                     var oTree = that.byId("funcLocTree");
                     if (oTree) {
-                        that._expandPathTo(oTree, oTree.getItems(), sFuncLoc);
+                        oTree.expandToLevel(999); // Expand all levels
                     }
-                }, 500);
-            }
+                })
+                .catch(function(error) {
+                    console.error("Failed to load functional location hierarchy:", error);
+                    sap.m.MessageToast.show("无法加载功能位置层级结构");
+                });
         },
         
-        /**
-         * Build Functional Location hierarchy
-         * @param {Array} aFuncLocs - All Functional Locations
-         * @param {string} sCurrentFuncLoc - Current Functional Location ID
-         * @returns {Array} Hierarchy structure for tree
-         */
-        _buildFuncLocHierarchy: function(aFuncLocs, sCurrentFuncLoc) {
-            var mFuncLocs = {}; // Map for quick lookup
-            var aRoots = []; // Store root nodes
-            
-            // First build mapping of all nodes
-            aFuncLocs.forEach(function(oFuncLoc) {
-                var sId = oFuncLoc.FunctionalLoc;
-                mFuncLocs[sId] = {
-                    id: sId,
-                    text: oFuncLoc.Description,
-                    funcLoc: sId,
-                    nodes: [],
-                    parent: null
-                };
-            });
-            
-            // Build parent-child relationships
-            aFuncLocs.forEach(function(oFuncLoc) {
-                var sId = oFuncLoc.FunctionalLoc;
-                var oNode = mFuncLocs[sId];
-                
-                // Check parent relationship
-                if (oFuncLoc.Parent && typeof oFuncLoc.Parent === 'object') {
-                    // If Parent is an object with metadata
-                    if (oFuncLoc.Parent.FunctionalLoc) {
-                        var sParentId = oFuncLoc.Parent.FunctionalLoc;
-                        
-                        if (mFuncLocs[sParentId]) {
-                            var oParent = mFuncLocs[sParentId];
-                            oParent.nodes.push(oNode);
-                            oNode.parent = oParent;
-                        } else {
-                            aRoots.push(oNode);
-                        }
-                    } else {
-                        aRoots.push(oNode);
-                    }
-                } else {
-                    // No parent, add as root
-                    aRoots.push(oNode);
-                }
-            });
-            
-            // Remove duplicate root nodes
-            aRoots = aRoots.filter(function(oNode) {
-                return !oNode.parent;
-            });
-            
-            return aRoots;
-        },
-
-        /**
-         * Expand the path to a specific Functional Location
-         * @param {sap.m.Tree} oTree - The tree control
-         * @param {Array} aItems - Tree items
-         * @param {string} sFuncLoc - Target Functional Location ID
-         * @returns {boolean} True if found and expanded
-         */
-        _expandPathTo: function (oTree, aItems, sFuncLoc) {
-            // First find the target node
-            var oTargetNode = null;
-            var mFuncLocs = {};
-
-            // Get all nodes from tree model
-            var oModel = this.getView().getModel("funcLocTree");
-            var aAllNodes = [];
-
-            // Recursive function to traverse all nodes
-            function collectNodes(aNodes) {
-                aNodes.forEach(function (oNode) {
-                    aAllNodes.push(oNode);
-                    mFuncLocs[oNode.funcLoc] = oNode;
-                    if (oNode.nodes && oNode.nodes.length > 0) {
-                        collectNodes(oNode.nodes);
-                    }
-                });
-            }
-
-            // Collect all nodes
-            collectNodes(oModel.getProperty("/funcLocTree"));
-
-            // Find target node
-            var oTargetNode = mFuncLocs[sFuncLoc];
-            if (!oTargetNode) {
-                return false;
-            }
-
-            // Get path from target node to root
-            var aPath = [];
-            var oCurrentNode = oTargetNode;
-
-            while (oCurrentNode) {
-                aPath.unshift(oCurrentNode); // Add to front of array
-                oCurrentNode = oCurrentNode.parent;
-            }
-
-            // Expand path in order
-            var oBinding = oTree.getBinding("items");
-
-            // Start from root
-            for (var i = 0; i < aPath.length - 1; i++) {
-                var oNode = aPath[i];
-                var oContext = oBinding.findNode(oNode.id);
-
-                if (oContext) {
-                    var iIndex = oContext.getIndex();
-                    oBinding.expand(iIndex);
-                }
-            }
-
-            // Finally select target node
-            setTimeout(function () {
-                var aItems = oTree.getItems();
-                for (var i = 0; i < aItems.length; i++) {
-                    var oItem = aItems[i];
-                    var oItemContext = oItem.getBindingContext("funcLocTree");
-
-                    if (oItemContext && oItemContext.getProperty("funcLoc") === sFuncLoc) {
-                        oTree.setSelectedItem(oItem);
-                        oItem.focus();
-                        break;
-                    }
-                }
-            }, 100);
-
-            return true;
-        },
+ 
 
         /**
          * Event handler for navigating back

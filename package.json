@@ -27,6 +27,9 @@
   "sapuxLayer": "CUSTOMER_BASE",
   "dependencies": {
     "@openui5/sap.ui.core": "^1.131.0",
-    "@openui5/themelib_sap_fiori_3": "^1.131.0"
+    "@openui5/themelib_sap_fiori_3": "^1.131.0",
+    "install": "^0.13.0",
+    "npm": "^11.1.0",
+    "xlsx": "^0.18.5"
   }
 }

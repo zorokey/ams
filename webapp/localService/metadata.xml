@@ -40,11 +40,11 @@
                 <Property Name="FunctionalLoc" Type="Edm.String" Nullable="false" MaxLength="30" />
                 <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="100" />
                 <Property Name="ValidFrom" Type="Edm.DateTime" Nullable="false" />
-                <NavigationProperty Name="Children" Relationship="EMSD_AMS_SRV.FunctionalLoc_Children" FromRole="Parent" ToRole="Child" Multiplicity="*" />
-                <NavigationProperty Name="Parent" Relationship="EMSD_AMS_SRV.FunctionalLoc_Children" FromRole="Child" ToRole="Parent" Multiplicity="0..1" />
+                <Property Name="Parent" Type="Edm.String" Nullable="true" MaxLength="30" /> <!-- 改为普通属性 -->
+                <!-- 移除 Children 导航属性 -->
             </EntityType>
 
-            <!-- Class EntityType (已修正Characteristics为集合类型) -->
+            <!-- Class EntityType -->
             <EntityType Name="Class">
                 <Key><PropertyRef Name="Class"/></Key>
                 <Property Name="Class" Type="Edm.String" Nullable="false" MaxLength="20" />
@@ -52,7 +52,7 @@
                 <Property Name="ClassTypeDescription" Type="Edm.String" MaxLength="40" />
                 <Property Name="ChangeNumber" Type="Edm.String" MaxLength="12" />
                 <Property Name="ValidFrom" Type="Edm.DateTime" />
-                <Property Name="Characteristics" Type="Collection(EMSD_AMS_SRV.Characteristic)" /> <!-- 修正点 -->
+                <Property Name="Characteristics" Type="Collection(EMSD_AMS_SRV.Characteristic)" />
             </EntityType>
 
             <!-- Characteristic ComplexType -->
@@ -101,10 +101,7 @@
                 <End Type="EMSD_AMS_SRV.Equipment" Role="Equipment" Multiplicity="1"/>
                 <End Type="EMSD_AMS_SRV.EquipmentType" Role="EquipmentType" Multiplicity="0..1"/>
             </Association>
-            <Association Name="FunctionalLoc_Children">
-                <End Type="EMSD_AMS_SRV.FunctionalLoc" Role="Parent" Multiplicity="1"/>
-                <End Type="EMSD_AMS_SRV.FunctionalLoc" Role="Child" Multiplicity="*"/>
-            </Association>
+            <!-- 移除 FunctionalLoc_Children 关联 -->
 
             <!-- EntityContainer -->
             <EntityContainer Name="EMSD_AMS_SRV_Entities" m:IsDefaultEntityContainer="true">
@@ -113,8 +110,7 @@
                 <EntitySet Name="ClassSet" EntityType="EMSD_AMS_SRV.Class"/>
                 <EntitySet Name="ClassificationSet" EntityType="EMSD_AMS_SRV.Classification"/>
                 <EntitySet Name="EquipmentTypeSet" EntityType="EMSD_AMS_SRV.EquipmentType"/>
-                
-                
+
                 <!-- AssociationSets -->
                 <AssociationSet Name="EquipmentFunctionalLocSet" Association="EMSD_AMS_SRV.Equipment_FunctionalLoc">
                     <End Role="Equipment" EntitySet="EquipmentSet"/>
@@ -128,10 +124,7 @@
                     <End Role="Equipment" EntitySet="EquipmentSet"/>
                     <End Role="EquipmentType" EntitySet="EquipmentTypeSet"/>
                 </AssociationSet>
-                <AssociationSet Name="FunctionalLocChildrenSet" Association="EMSD_AMS_SRV.FunctionalLoc_Children">
-                    <End Role="Parent" EntitySet="FunctionalLocSet"/>
-                    <End Role="Child" EntitySet="FunctionalLocSet"/>
-                </AssociationSet>
+                <!-- 移除 FunctionalLocChildrenSet -->
             </EntityContainer>
         </Schema>
     </edmx:DataServices>
