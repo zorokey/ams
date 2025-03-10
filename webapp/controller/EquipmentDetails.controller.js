@@ -145,6 +145,7 @@ sap.ui.define([
         _loadFunctionalLocationHierarchy: function(sFuncLoc) {
             var that = this;
             var oModel = this.getOwnerComponent().getModel();
+ 
             
             // First fetch the target location and all ancestors
             function fetchLocationWithAncestors(funcLoc) {
@@ -298,10 +299,10 @@ sap.ui.define([
                     // Set the complete hierarchy to the model
                     oTreeModel.setProperty("/funcLocTree", completeHierarchy ? [completeHierarchy] : []);
                     
-                    // Auto-expand all levels
-                    var oTree = that.byId("funcLocTree");
-                    if (oTree) {
-                        oTree.expandToLevel(999); // Expand all levels
+                    // Auto-expand all levels for TreeTable
+                    var oTreeTable = that.byId("funcLocTree");
+                    if (oTreeTable) {
+                        oTreeTable.expandToLevel(999); // Expand all levels
                     }
                 })
                 .catch(function(error) {

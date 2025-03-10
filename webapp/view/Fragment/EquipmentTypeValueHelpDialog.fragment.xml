@@ -1,0 +1,38 @@
+<core:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core">
+    
+    <TableSelectDialog
+        title="设备类型"
+        class="sapUiPopupWithPadding"
+        items="{/EquipmentTypeSet}"
+        search="_handleEquipmentTypeSearch"
+        confirm="_handleEquipmentTypeConfirm"
+        cancel="_handleEquipmentTypeClose"
+        multiSelect="false">
+        <ColumnListItem type="Active">
+            <cells>
+                <Text text="{EquipmentTypeCode}" />
+                <Text text="{Description}" />
+                <CheckBox selected="{Obsolete}" enabled="false" />
+            </cells>
+        </ColumnListItem>
+        <columns>
+            <Column>
+                <header>
+                    <Text text="设备类型编码" />
+                </header>
+            </Column>
+            <Column>
+                <header>
+                    <Text text="描述" />
+                </header>
+            </Column>
+            <Column>
+                <header>
+                    <Text text="Obsolete" />
+                </header>
+            </Column>
+        </columns>
+    </TableSelectDialog>
+</core:FragmentDefinition>

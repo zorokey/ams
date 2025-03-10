@@ -257,12 +257,89 @@
                                 <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
                                     <PropertyValue Property="ValueListProperty" String="ValidFrom" />
                                 </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="HighestLevel" />
+                                    <PropertyValue Property="ValueListProperty" String="HighestLevel" />
+                                </Record>
                             </Collection>
                         </PropertyValue>
                     </Record>
                 </Annotation>
                 <Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="FunctionalLoc/Description" />
                 <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Functional Location" />
+            </Annotations>
+            
+            <!-- 为FunctionalLoc实体类型的HighestLevel属性添加明确的注解 -->
+            <Annotations Target="EMSD_AMS_SRV.FunctionalLoc/HighestLevel">
+                <Annotation Term="com.sap.vocabularies.Common.v1.FieldControl" EnumMember="com.sap.vocabularies.Common.v1.FieldControlType/Optional" />
+                <Annotation Term="com.sap.vocabularies.UI.v1.DataFieldDefault">
+                    <Record>
+                        <PropertyValue Property="Visualization" EnumMember="com.sap.vocabularies.UI.v1.VisualizationType/Checkbox" />
+                    </Record>
+                </Annotation>
+            </Annotations>
+            
+            <!-- 为值列表中的项添加配置 -->
+            <Annotations Target="EMSD_AMS_SRV.FunctionalLocSet">
+                <Annotation Term="com.sap.vocabularies.UI.v1.PresentationVariant">
+                    <Record>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.LineItem</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                
+                <Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="FunctionalLoc" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="Description" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="ValidFrom" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="HighestLevel" />
+                            <PropertyValue Property="Visualization" EnumMember="com.sap.vocabularies.UI.v1.VisualizationType/Checkbox" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                
+                <!-- 定义筛选字段，排除Parent -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.SelectionFields">
+                    <Collection>
+                        <PropertyPath>FunctionalLoc</PropertyPath>
+                        <PropertyPath>Description</PropertyPath>
+                        <PropertyPath>HighestLevel</PropertyPath>
+                        <!-- Parent 属性未包含，因此不会显示在筛选条件中 -->
+                    </Collection>
+                </Annotation>
+                
+                <!-- 为HighestLevel属性在筛选器中设置为复选框 -->
+                <Annotation Term="com.sap.vocabularies.UI.v1.FilterFacets">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.ReferenceFacet">
+                            <PropertyValue Property="Target" AnnotationPath="@UI.FieldGroup#Filters" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                
+                <Annotation Term="com.sap.vocabularies.UI.v1.FieldGroup" Qualifier="Filters">
+                    <Record>
+                        <PropertyValue Property="Data">
+                            <Collection>
+                                <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                                    <PropertyValue Property="Value" Path="HighestLevel" />
+                                    <PropertyValue Property="Visualization" EnumMember="com.sap.vocabularies.UI.v1.VisualizationType/Checkbox" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
             </Annotations>
             
             <!-- Value List Annotations for EquipmentType Property -->
@@ -284,12 +361,52 @@
                                 <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
                                     <PropertyValue Property="ValueListProperty" String="SuperiorEquipmentType" />
                                 </Record>
+                                <Record Type="com.sap.vocabularies.Common.v1.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Obsolete" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="SelectionFields">
+                            <Collection>
+                                <PropertyPath>EquipmentType</PropertyPath>
+                                <PropertyPath>Description</PropertyPath>
+                                <PropertyPath>Obsolete</PropertyPath>
                             </Collection>
                         </PropertyValue>
                     </Record>
                 </Annotation>
                 <Annotation Term="com.sap.vocabularies.Common.v1.Text" Path="EquipmentTypeNav/Description" />
                 <Annotation Term="com.sap.vocabularies.Common.v1.Label" String="Equipment Type" />
+            </Annotations>
+
+            <Annotations Target="EMSD_AMS_SRV.EquipmentType/Obsolete">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Visualization" EnumMember="com.sap.vocabularies.UI.v1.VisualizationType/Checkbox" />
+                <Annotation Term="com.sap.vocabularies.UI.v1.IsCheckBox" Bool="true" />  <!-- 一些老版本可能使用这个 -->
+                <Annotation Term="com.sap.vocabularies.Common.v1.ControlType" EnumMember="com.sap.vocabularies.Common.v1.ControlType/CheckBox" />
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.EquipmentTypeSet">
+                <Annotation Term="com.sap.vocabularies.UI.v1.LineItem">
+                    <Collection>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="EquipmentType" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="Description" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="SuperiorEquipmentType" />
+                        </Record>
+                        <Record Type="com.sap.vocabularies.UI.v1.DataField">
+                            <PropertyValue Property="Value" Path="Obsolete" />
+                            <PropertyValue Property="Visualization" EnumMember="com.sap.vocabularies.UI.v1.VisualizationType/Checkbox" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            
+            <Annotations Target="EMSD_AMS_SRV.EquipmentType/Obsolete">
+                <Annotation Term="com.sap.vocabularies.UI.v1.Visualization" EnumMember="com.sap.vocabularies.UI.v1.VisualizationType/Checkbox" />
             </Annotations>
             
             <!-- Adding Common.Label annotations for all remaining fields -->

@@ -40,8 +40,9 @@
                 <Property Name="FunctionalLoc" Type="Edm.String" Nullable="false" MaxLength="30" />
                 <Property Name="Description" Type="Edm.String" Nullable="false" MaxLength="100" />
                 <Property Name="ValidFrom" Type="Edm.DateTime" Nullable="false" />
-                <Property Name="Parent" Type="Edm.String" Nullable="true" MaxLength="30" /> <!-- 改为普通属性 -->
-                <!-- 移除 Children 导航属性 -->
+                <Property Name="HighestLevel" Type="Edm.Boolean" Nullable="false" DefaultValue="false" />
+                <Property Name="Parent" Type="Edm.String" Nullable="true" MaxLength="30" />
+                
             </EntityType>
 
             <!-- Class EntityType -->
@@ -86,6 +87,7 @@
                 <Property Name="EquipmentType" Type="Edm.String" Nullable="false" MaxLength="10" />
                 <Property Name="Description" Type="Edm.String" MaxLength="40" />
                 <Property Name="SuperiorEquipmentType" Type="Edm.String" MaxLength="50" />
+                <Property Name="Obsolete" Type="Edm.Boolean" Nullable="false" DefaultValue="false" />
             </EntityType>
 
             <!-- Associations -->

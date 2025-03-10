@@ -5,247 +5,288 @@
                 "FunctionalLoc": "LDMS",
                 "Description": "LANDMARK SOUTH",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": null
+                "Parent": null,
+                "HighestLevel": true
             },
             {
                 "FunctionalLoc": "LDMS-001",
                 "Description": "LANDMARK SOUTH, SPORTS AND TOURISM BUREAU (CSTB)",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS"
+                "Parent": "LDMS",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-AC",
                 "Description": "HEATING, VENTILATION & AIR-COND INST",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11079912",
                 "Description": "Air Side",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-AC"
+                "Parent": "LDMS-001-AC",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070028",
                 "Description": "Chiller",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "11079912"
+                "Parent": "11079912",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070029",
                 "Description": "Chiller",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "11079912"
+                "Parent": "11079912",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070030",
                 "Description": "Chiller",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "11079912"
+                "Parent": "11079912",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070034",
                 "Description": "CHWP-A-3F-02",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "11079912"
+                "Parent": "11079912",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070035",
                 "Description": "CHWP-A-3F-03",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "11079912"
+                "Parent": "11079912",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070036",
                 "Description": "CHWP-A-3F-04",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "11079912"
+                "Parent": "11079912",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070037",
                 "Description": "Broadcasting Reception System",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-AC"
+                "Parent": "LDMS-001-AC",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-BR",
                 "Description": "BUILDING AUTOMATION SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070038",
                 "Description": "COMPRESSOR AIR PNEU SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070039",
                 "Description": "E&M BLDG INSTALLATION",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070040",
                 "Description": "ELECT SUPPLY & DISTRIBUTION SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070041",
                 "Description": "GENERAL B&M SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070042",
                 "Description": "VEHICLE SERVICING SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070043",
                 "Description": "FUEL STORAGE & DISPENSING SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070044",
                 "Description": "FLOODLIGHTING SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070045",
                 "Description": "FIRE SERVICE SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070046",
                 "Description": "GENERAL ELECTRONICS EQUIPMENT",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070047",
                 "Description": "GONDOLA SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070048",
                 "Description": "HOSPITAL ENGINEERING EQUIPMENT",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070049",
                 "Description": "OIL FIRE HOT WATER SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070050",
                 "Description": "LIFT & ESCALATOR SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070051",
                 "Description": "GENERAL & STREET LIGHTING SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070052",
                 "Description": "LIFTG, HANDLING & CONVEYING SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070053",
                 "Description": "LIQUIFIED PETROLEUM GAS SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070054",
                 "Description": "MECH VENTILATION & EXHAUST SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070055",
                 "Description": "PLUMBING, DRAINAGE & SEWAGE INST",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070056",
                 "Description": "STEAM AND HW SUPPLY SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "11070057",
                 "Description": "BURGLAR ALARM & SECURITY SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001-BR"
+                "Parent": "LDMS-001-BR",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-AC",
                 "Description": "HEATING, VENTILATION & AIR-COND INST",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-BR",
                 "Description": "BROADCASTING RECEPTION SYSTEM INST",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-BU",
                 "Description": "BUILDING AUTOMATION SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-CP",
                 "Description": "COMPRESSED AIR PNEU SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-EB",
                 "Description": "E&M BLDG INSTALLATION",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-EM",
                 "Description": "ELECT SUPPLY & DISTRIBUTION SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-ES",
                 "Description": "GENERAL B&M SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-FD",
                 "Description": "VEHICLE SERVICING SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             },
             {
                 "FunctionalLoc": "LDMS-001-FL",
                 "Description": "FUEL STORAGE & DISPENSING SYSTEM",
                 "ValidFrom": "/Date(1740873600000)/",
-                "Parent": "LDMS-001"
+                "Parent": "LDMS-001",
+                "HighestLevel": false
             }
         ]
     }

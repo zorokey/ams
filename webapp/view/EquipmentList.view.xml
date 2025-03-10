@@ -25,6 +25,23 @@
                     enableBasicSearch="true"
                     useDateRangeType="true"
                 > 
+
+                <!-- <smartFilterBar:controlConfiguration>
+                    <smartFilterBar:ControlConfiguration
+                        key="EquipmentType"
+                        visibleInAdvancedArea="true"
+                        preventInitialDataFetchInValueHelpDialog="true"
+                        index="1">
+                        <smartFilterBar:customControl>
+                            <Input
+                                id="equipmentTypeInput"
+                                showValueHelp="true"
+                                valueHelpRequest="onCustomEquipmentTypeValueHelp" />
+                        </smartFilterBar:customControl>
+                    </smartFilterBar:ControlConfiguration>
+                </smartFilterBar:controlConfiguration> -->
+                
+
                 </smartFilterBar:SmartFilterBar>
                 <smartTable:SmartTable
                     id="equipmentSmartTable"
@@ -103,8 +120,14 @@
                             <Button
                                 id="createEquipmentButton"
                                 text="{i18n>createButtonText}"
-                                type="Emphasized"
+                                 
                                 press="onCreateEquipment"
+                            />
+                            <Button
+                                id="exportEquipmentButton"
+                                text="{i18n>exportText}"
+                                 
+                                press="onExportWithData"
                             />
                             <Button type="Transparent" id="btnMultiEdit" text="Edit Multiple" 
                             enabled="{= ${equipmentSmartTable>/selectedContexts}.length > 0 }"

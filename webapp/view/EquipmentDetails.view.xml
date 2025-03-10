@@ -7,6 +7,7 @@
     xmlns:smartForm="sap.ui.comp.smartform"
     xmlns:smartField="sap.ui.comp.smartfield"
     xmlns:smartTable="sap.ui.comp.smarttable"
+    xmlns:table="sap.ui.table"
     controllerName="emsd.ams.controller.EquipmentDetails"
     displayBlock="true"
 >
@@ -29,28 +30,40 @@
                             <l:SplitterLayoutData size="30%" />
                         </l:layoutData>
 
-                        <Panel 
+                        
+                        <Panel
         id="funcLocTreePanel"
         headerText="{i18n>functionalLocationHierarchy}"
-        class="sapUiNoContentPadding"
-    >
-        <Tree
+        class="sapUiNoContentPadding">
+        <table:TreeTable
             id="funcLocTree"
-            items="{
+            rows="{
                 path: 'funcLocTree>/funcLocTree',
                 parameters: {
                     arrayNames: ['nodes']
                 }
             }"
-            mode="SingleSelectMaster"
-            selectionChange="onFuncLocNodeSelect"
-        >
-            <StandardTreeItem
-                title="{funcLocTree>text}"
-                tooltip="{funcLocTree>funcLoc}"
-            />
-        </Tree>
+            selectionMode="Single"
+            selectionBehavior="RowOnly"
+            enableSelectAll="false"
+            rowSelectionChange="onFuncLocNodeSelect">
+            <table:columns>
+                <table:Column width="12rem">
+                    <Label text="Functional Location"/>
+                    <table:template>
+                        <Text text="{funcLocTree>funcLoc}"/>
+                    </table:template>
+                </table:Column>
+                <table:Column>
+                    <Label text="Description"/>
+                    <table:template>
+                        <Text text="{funcLocTree>text}"/>
+                    </table:template>
+                </table:Column>
+            </table:columns>
+        </table:TreeTable>
     </Panel>
+                         
                     </l:SplitPane>
 
                     <!-- Right side - 70% width -->
