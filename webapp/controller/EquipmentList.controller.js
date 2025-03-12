@@ -734,6 +734,15 @@ sap.ui.define([
             MessageToast.show("Exported selected equipment data");
         },
 
+        onExportWithVBA: function () {
+             
+
+            var oSmartTable = this.byId("equipmentSmartTable");
+            ExcelExporter.onExportWithVBA(oSmartTable);
+ 
+            MessageToast.show("Exported selected equipment data");
+        },
+
         onGenerateWithData: function () {
             // this.onExport();
             // var oSmartTable = this.byId("equipmentSmartTable");

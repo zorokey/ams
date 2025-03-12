@@ -60,6 +60,7 @@
                     initiallyVisibleFields="EquipmentNo,EquipmentDescription,ModelNo,ManufacturerSerialNo,FunctionalLocation,UserStatus"
                     demandPopin="true"
                     showFullScreenButton="true"
+                    editable="false"
                 >
                     <smartTable:customToolbar>
                         <OverflowToolbar id="equipmentTableToolbar">
@@ -124,10 +125,14 @@
                                 press="onCreateEquipment"
                             />
                             <Button
-                                id="exportEquipmentButton"
+                                id="exportEquipmentButton1"
                                 text="{i18n>exportText}"
-                                 
                                 press="onExportWithData"
+                            />
+                            <Button
+                                id="exportEquipmentButton2"
+                                text="ExportwithVBA"
+                                press="onExportWithVBA"
                             />
                             <Button type="Transparent" id="btnMultiEdit" text="Edit Multiple" 
                             enabled="{= ${equipmentSmartTable>/selectedContexts}.length > 0 }"

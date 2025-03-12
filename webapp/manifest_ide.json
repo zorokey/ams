@@ -1,0 +1,169 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"id": "emsd.ams",
+		"type": "application",
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"ach": "ams",
+		"dataSources": {
+			"mainService": {
+				"uri": "/sap/opu/odata/sap/EMSD_AMS_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"annotations": [
+						"annotations"
+					],
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"annotations": {
+				"uri": "localService/annotations.xml",
+				"type": "ODataAnnotation"
+			},
+			"EMSD_AMS_SRV": {
+				"uri": "",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/EMSD_AMS_SRV/metadata.xml"
+				}
+			}
+		},
+		"_version": "1.3.0",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "sap-icon://equipment",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"_version": "1.3.0",
+		"supportedThemes": []
+	},
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "emsd.ams.view.App",
+			"type": "XML",
+			"async": true 
+		 
+		},
+		"dependencies": {
+			"minUI5Version": "1.71.73",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {},
+				"sap.ui.comp": {},
+				"sap.f": {},
+				"sap.ui.table": {},
+				"xlsx": {
+					"lazy": true,
+					"path": "https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5",
+					"file": "xlsx.full.min.js"
+				},
+				"filesaver": {
+					"lazy": true,
+					"path": "https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5",
+					"file": "FileSaver.min.js"
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "emsd.ams.i18n.i18n"
+				}
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Inline",
+					"refreshAfterChange": false,
+					"metadataUrlParams": {
+						"sap-documentation": "heading"
+					}
+				}
+			}
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			],
+			"js": [
+				{
+					"uri": "libs/xlsx.full.min.js"
+				}
+			]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "emsd.ams.view",
+				"controlId": "app",
+				"controlAggregation": "pages",
+				"bypassed": {
+					"target": "notFound"
+				},
+				"async": true
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "EquipmentList",
+					"target": "EquipmentList"
+				},
+				{
+					"pattern": "Equipment/{equipmentId}",
+					"name": "EquipmentDetails",
+					"target": "EquipmentDetails"
+				}
+			],
+			"targets": {
+				"EquipmentList": {
+					"viewName": "EquipmentList",
+					"viewLevel": 1,
+					"viewId": "equipmentList",
+					"title": "{i18n>equipmentListTitle}"
+				},
+				"EquipmentDetails": {
+					"viewName": "EquipmentDetails",
+					"viewLevel": 2,
+					"viewId": "equipmentDetails",
+					"title": "{i18n>equipmentDetailsTitle}"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+		},
+		"_version": "1.2.0"
+	}
+}
