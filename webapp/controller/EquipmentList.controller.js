@@ -721,21 +721,11 @@ sap.ui.define([
         //     return aData;
         // },
 
-        onExportWithData: function () {
-            // this.onExport();
-            // var oSmartTable = this.byId("equipmentSmartTable");
-            // ExcelExporter.onExport(oSmartTable);
-
-            // ExcelExporter.onExportBlank();
-
-            var oSmartTable = this.byId("equipmentSmartTable");
-            ExcelExporter.onExportWithStyle(oSmartTable);
- 
-            MessageToast.show("Exported selected equipment data");
+        onExportBlank: function () {
+            ExcelExporter.onExportBlank();
         },
 
         onExportWithVBA: function () {
-             
 
             var oSmartTable = this.byId("equipmentSmartTable");
             ExcelExporter.onExportWithVBA(oSmartTable);
@@ -752,8 +742,6 @@ sap.ui.define([
 
             var oSmartTable = this.byId("equipmentSmartTable");
             ExcelExporter.onExportWithStyle(oSmartTable);
-
-
 
             MessageToast.show("Exported selected equipment data");
         },

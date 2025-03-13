@@ -126,8 +126,8 @@
                             />
                             <Button
                                 id="exportEquipmentButton1"
-                                text="{i18n>exportText}"
-                                press="onExportWithData"
+                                text="ExportBlank"
+                                press="onExportBlank"
                             />
                             <Button
                                 id="exportEquipmentButton2"

@@ -285,20 +285,15 @@
                     text="{i18n>saveButtonText}"
                     type="Emphasized"
                     press="onSaveEquipment"
-                    visible="{/editMode}"
+                    visible="{viewModel>/editMode}"
                 />
                 <Button
                     id="cancelButton"
                     text="{i18n>cancelButtonText}"
                     press="onCancelEdit"
-                    visible="{/editMode}"
+                    visible="{viewModel>/editMode}"
                 />
-                <Button
-                    id="backButton"
-                    text="{i18n>backButtonText}"
-                    press="onNavBack"
-                    visible="{= !${/editMode}}"
-                />
+          
             </Toolbar>
         </footer>
     </Page>
